@@ -81,7 +81,7 @@ $(document).ready(function() {
     function appendToOverlay() {
         $('body').append(lightbox.background)
             .append(lightbox.overlay);
-        $('.overlayBackground').css('background-image', 'url(' + largeImagePath(image[$imageIndex].src +')fixed no-repeat')).css('background-size', 'cover').show();
+        $('.overlayBackground').attr('src', largeImagePath(image[$imageIndex].src)).show();
         $('#largeImage').attr('src', largeImagePath(image[$imageIndex].src)).show();
         $('#heading').html(headerText[$imageIndex].innerHTML).show();
         $('#caption').html(captionText[$imageIndex].innerHTML).show();
@@ -93,7 +93,7 @@ $(document).ready(function() {
             .append(lightbox.previous).show();
         }
     lightbox = {
-        background: '<div class="overlayBackground"></div>',
+        background: function () {return '<img id="background" class="overlayBackground" src="' + largeImagePath(image[$imageIndex].src) + '" alt="' + image[$imageIndex].alt + '">';},
         overlay: '<div class="overlay"></div>',
         previous: '<i id="previousButton" class="fa fa-chevron-circle-left"></i>',
         next: '<i id="nextButton" class="fa fa-chevron-circle-right"></i>',

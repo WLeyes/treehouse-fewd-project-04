@@ -142,7 +142,7 @@ header {
   display: block;
   position: fixed;
   font-size: 15rem;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.6);
   top: calc(50% - 8rem);
   left: 3.5rem;
   right: auto;
@@ -155,7 +155,7 @@ header {
   display: block;
   position: fixed;
   font-size: 15rem;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.6);
   top: calc(50% - 8rem);
   right: 3.5rem;
   z-index: 3;

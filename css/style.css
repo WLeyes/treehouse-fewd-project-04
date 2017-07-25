@@ -180,7 +180,12 @@ header {
   z-index: 2;
 }
 
-/* line 130, ../components/sass/_modules.scss */
+/* line 129, ../components/sass/_modules.scss */
+.imageTitle {
+  text-align: center;
+}
+
+/* line 133, ../components/sass/_modules.scss */
 .imageText {
   margin: 0 auto;
   margin-top: -1.8rem;
@@ -196,7 +201,7 @@ header {
   background: rgba(0, 0, 0, 0.7);
 }
 
-/* line 145, ../components/sass/_modules.scss */
+/* line 148, ../components/sass/_modules.scss */
 .overlay {
   width: 100%;
   height: 100%;
@@ -210,7 +215,7 @@ header {
   overflow: hidden;
 }
 
-/* line 157, ../components/sass/_modules.scss */
+/* line 160, ../components/sass/_modules.scss */
 .overlayBackground {
   position: fixed;
   top: 0;

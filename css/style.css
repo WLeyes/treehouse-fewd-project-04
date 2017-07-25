@@ -1,235 +1,65 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,600,700);
-/* line 3, ../components/sass/_base.scss */
-html {
-  box-sizing: border-box;
-  line-height: 160%;
-  font-size: 62.5%;
-}
-
-/* line 9, ../components/sass/_base.scss */
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-/* line 13, ../components/sass/_base.scss */
-body {
-  margin: 0;
-  padding: 0;
-  font-size: 1.8rem;
-  color: #464848;
-  font-family: Raleway, Helvetica, Arial, sans-serif;
-  line-height: 160%;
-  font-weight: 600;
-}
-
-/* line 23, ../components/sass/_base.scss */
-.container {
-  width: 100%;
-  margin: 8rem auto 0 auto;
-}
-
-/* line 28, ../components/sass/_base.scss */
-h1, h2, h3, h4, h5, h6 {
-  font-family: Raleway, Helvetica, Arial, sans-serif;
-  color: #464848;
-  font-size: 2.4rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-/* line 36, ../components/sass/_base.scss */
-img {
-  display: block;
-  max-width: 100%;
-}
-
 /*
-    Header
+Error: wrong number of arguments (4 for 1) for `red'
+        on line 30 of C:/server/www/workflow/components/sass/_variables.scss
+        from line 5 of C:/server/www/workflow/components/sass/style.scss
+
+Backtrace:
+C:/server/www/workflow/components/sass/_variables.scss:30
+C:/server/www/workflow/components/sass/style.scss:5
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/script/tree/funcall.rb:310:in `reformat_argument_error'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/script/tree/funcall.rb:149:in `rescue in _perform'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/script/tree/funcall.rb:123:in `_perform'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/script/tree/node.rb:58:in `perform'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:472:in `visit_variable'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/stack.rb:79:in `block in with_base'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/stack.rb:115:in `with_frame'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/stack.rb:79:in `with_base'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:162:in `visit'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:329:in `block (2 levels) in visit_import'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:329:in `map'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:329:in `block in visit_import'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/stack.rb:88:in `block in with_import'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/stack.rb:115:in `with_frame'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/stack.rb:88:in `with_import'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:326:in `visit_import'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/stack.rb:79:in `block in with_base'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/stack.rb:115:in `with_frame'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/stack.rb:79:in `with_base'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:162:in `visit'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:52:in `map'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:161:in `visit'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:10:in `visit'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/root_node.rb:36:in `css_tree'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/tree/root_node.rb:20:in `render'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/engine.rb:284:in `render'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:494:in `update_stylesheet'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:209:in `each'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.4.25/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-1.0.3/lib/compass/sass_compiler.rb:40:in `compile!'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-1.0.3/lib/compass/commands/update_project.rb:49:in `perform'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-1.0.3/lib/compass/commands/base.rb:18:in `execute'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-1.0.3/lib/compass/commands/project_base.rb:19:in `execute'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-1.0.3/bin/compass:30:in `block in <top (required)>'
+C:/server/Ruby24-x64/lib/ruby/gems/2.4.0/gems/compass-1.0.3/bin/compass:44:in `<top (required)>'
+C:/server/Ruby24-x64/bin/compass:22:in `load'
+C:/server/Ruby24-x64/bin/compass:22:in `<main>'
 */
-/* line 7, ../components/sass/_modules.scss */
-header {
-  position: fixed;
-  top: 1rem;
-  width: 100%;
-  text-align: center;
-  z-index: 1;
-}
-
-/*
-     Gallery
-*/
-/* line 19, ../components/sass/_modules.scss */
-.gallery {
-  width: 80%;
-  max-width: 120rem;
-  margin: 8rem auto 0 auto;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-/* line 27, ../components/sass/_modules.scss */
-#search {
-  box-shadow: 0 0 3px #464848;
-  margin: 10px;
-}
-
-/* line 32, ../components/sass/_modules.scss */
-#gallery img {
-  border: solid rgba(0, 0, 0, 0.6) 0.1rem;
-  padding: .7rem;
-  width: 22rem;
-  height: 22rem;
-}
-
-/* line 39, ../components/sass/_modules.scss */
-#gallery img:hover {
-  cursor: pointer;
-}
-
-/*
-    Overlay section
-*/
-/* line 46, ../components/sass/_modules.scss */
-#heading {
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  text-transform: uppercase;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.4);
-  margin: 0 auto;
-  line-height: normal;
-  width: 100%;
-  font-size: 6rem;
-  text-align: center;
-  z-index: 2;
-}
-
-/* line 62, ../components/sass/_modules.scss */
-#caption {
-  background-color: rgba(0, 0, 0, 0.6);
-  display: block;
-  position: fixed;
-  text-transform: none;
-  color: #fff;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  max-width: 100%;
-  font-size: 2.5rem;
-  padding: 1.5rem;
-  bottom: 0;
-  z-index: 3;
-}
-
-/* line 78, ../components/sass/_modules.scss */
-#closeButton {
-  display: block;
-  position: fixed;
-  font-size: 7rem;
-  color: red;
-  top: 0;
-  right: 3rem;
-  height: 5rem;
-  z-index: 10;
-  cursor: pointer;
-}
-
-/* line 90, ../components/sass/_modules.scss */
-#previousButton {
-  display: block;
-  position: fixed;
-  font-size: 15rem;
-  color: rgba(0, 0, 0, 0.4);
-  top: calc(50% - 8rem);
-  left: 3.5rem;
-  right: auto;
-  z-index: 3;
-  cursor: pointer;
-}
-
-/* line 102, ../components/sass/_modules.scss */
-#nextButton {
-  display: block;
-  position: fixed;
-  font-size: 15rem;
-  color: rgba(0, 0, 0, 0.4);
-  top: calc(50% - 8rem);
-  right: 3.5rem;
-  z-index: 3;
-  cursor: pointer;
-}
-
-/* line 113, ../components/sass/_modules.scss */
-#largeImage {
-  display: block;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  max-width: 80%;
-  max-height: 80%;
-  border: 0.25em solid white;
-  border-radius: 1rem;
-  background-color: white;
-  padding: 1rem;
-  z-index: 2;
-}
-
-/* line 129, ../components/sass/_modules.scss */
-.imageTitle {
-  text-align: center;
-}
-
-/* line 133, ../components/sass/_modules.scss */
-.imageText {
-  margin: 0 auto;
-  margin-top: -1.8rem;
-  padding: 0 0.7rem;
-  width: 20.4rem;
-  position: relative;
-  top: -1.8rem;
-  z-index: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: #FFF;
-  background: rgba(0, 0, 0, 0.7);
-}
-
-/* line 148, ../components/sass/_modules.scss */
-.overlay {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 0;
-  display: none;
-  text-align: center;
-  z-index: 2;
-  overflow: hidden;
-}
-
-/* line 160, ../components/sass/_modules.scss */
-.overlayBackground {
-  position: fixed;
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  filter: blur(5px);
-  background-color: rgba(0, 0, 0, 0.7);
-  overflow: hidden;
-  z-index: 1;
-}
-
-/*
-     Footer section
-*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: wrong number of arguments (4 for 1) for `red'\A         on line 30 of C:/server/www/workflow/components/sass/_variables.scss\A         from line 5 of C:/server/www/workflow/components/sass/style.scss"; }

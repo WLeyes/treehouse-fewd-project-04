@@ -23,22 +23,3 @@
 
 // Place any jQuery/helper plugins in here.
 
-/**
- *  Animsition Plugin
- */
-$(document).ready(function() {
-    var screenSize = window.matchMedia("(min-width: 768px)");
-    if(screenSize.matches){
-        $('.container').addClass('animsition');
-        $('.animsition').animsition({
-            inClass: 'flip-in-y',
-            outClass: 'flip-out-y'
-        });
-        $('.imageItem').animsition({
-            inClass: 'rotate-in-lg',
-            outClass: 'rotate-out-lg',
-            inDuration: 1500,
-            outDuration: 500
-        })
-    }
-}); //EOF

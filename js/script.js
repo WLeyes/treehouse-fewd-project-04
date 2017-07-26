@@ -1,4 +1,9 @@
 /**
+ * Created by Warren on 2017-07-25.
+ */
+
+// todo: add search filter(filter on char keyup for images that contain the word in the search
+/**
  * Created by Warren Leyes on 2017-07-16.
  */
 $(document).ready(function() {

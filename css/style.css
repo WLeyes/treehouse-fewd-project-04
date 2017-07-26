@@ -58,7 +58,19 @@ header {
 /*
      Gallery
 */
-/* line 19, ../components/sass/_modules.scss */
+/* line 18, ../components/sass/_modules.scss */
+.intro {
+  animation: slider 1s ease-out 0s 1;
+}
+@keyframes slider {
+  0% {
+    transform: translatey(100%) rotate(0);
+  }
+  100% {
+    transform: translatey(0%) rotate(360deg);
+  }
+}
+/* line 30, ../components/sass/_modules.scss */
 .gallery {
   width: 80%;
   max-width: 120rem;
@@ -68,13 +80,13 @@ header {
   flex-wrap: wrap;
 }
 
-/* line 27, ../components/sass/_modules.scss */
+/* line 40, ../components/sass/_modules.scss */
 #search {
   box-shadow: 0 0 3px #464848;
   margin: 10px;
 }
 
-/* line 32, ../components/sass/_modules.scss */
+/* line 45, ../components/sass/_modules.scss */
 #gallery img {
   border: solid rgba(0, 0, 0, 0.6) 0.1rem;
   padding: .7rem;
@@ -82,7 +94,7 @@ header {
   height: 22rem;
 }
 
-/* line 39, ../components/sass/_modules.scss */
+/* line 52, ../components/sass/_modules.scss */
 #gallery img:hover {
   cursor: pointer;
 }
@@ -90,7 +102,7 @@ header {
 /*
     Overlay section
 */
-/* line 46, ../components/sass/_modules.scss */
+/* line 59, ../components/sass/_modules.scss */
 #heading {
   display: block;
   position: fixed;
@@ -107,7 +119,7 @@ header {
   z-index: 2;
 }
 
-/* line 62, ../components/sass/_modules.scss */
+/* line 75, ../components/sass/_modules.scss */
 #caption {
   background-color: rgba(0, 0, 0, 0.6);
   display: block;
@@ -124,7 +136,7 @@ header {
   z-index: 3;
 }
 
-/* line 78, ../components/sass/_modules.scss */
+/* line 91, ../components/sass/_modules.scss */
 #closeButton {
   display: block;
   position: fixed;
@@ -137,7 +149,7 @@ header {
   cursor: pointer;
 }
 
-/* line 90, ../components/sass/_modules.scss */
+/* line 103, ../components/sass/_modules.scss */
 #previousButton {
   display: block;
   position: fixed;
@@ -150,7 +162,7 @@ header {
   cursor: pointer;
 }
 
-/* line 102, ../components/sass/_modules.scss */
+/* line 115, ../components/sass/_modules.scss */
 #nextButton {
   display: block;
   position: fixed;
@@ -162,7 +174,7 @@ header {
   cursor: pointer;
 }
 
-/* line 113, ../components/sass/_modules.scss */
+/* line 126, ../components/sass/_modules.scss */
 #largeImage {
   display: block;
   position: fixed;
@@ -180,12 +192,12 @@ header {
   z-index: 2;
 }
 
-/* line 129, ../components/sass/_modules.scss */
+/* line 142, ../components/sass/_modules.scss */
 .imageTitle {
   text-align: center;
 }
 
-/* line 133, ../components/sass/_modules.scss */
+/* line 146, ../components/sass/_modules.scss */
 .imageText {
   margin: 0 auto;
   margin-top: -1.8rem;
@@ -201,7 +213,7 @@ header {
   background: rgba(0, 0, 0, 0.6);
 }
 
-/* line 148, ../components/sass/_modules.scss */
+/* line 161, ../components/sass/_modules.scss */
 .overlay {
   width: 100%;
   height: 100%;
@@ -215,7 +227,7 @@ header {
   overflow: hidden;
 }
 
-/* line 161, ../components/sass/_modules.scss */
+/* line 174, ../components/sass/_modules.scss */
 .overlayBackground {
   position: fixed;
   top: 0;

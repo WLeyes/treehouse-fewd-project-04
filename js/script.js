@@ -29,6 +29,23 @@ $(document).ready(function() {
     var $imageIndex = 0;
     var lightbox;
 
+    // this is set get and set local storage to prevent the intro from playing everytime the lightbox gets closed
+    // can remove the local storage cookie in dev console ;)
+    function intro(){
+        var ls = window.localStorage;
+        if(ls.getItem('intro') === 'undefined' || ls.getItem('intro') === null)
+        {
+            ls.setItem('intro', true);
+        }
+        if(ls.getItem('intro') === 'true'){
+            $('.imageItem').addClass('intro');
+        }
+        if(ls.getItem('intro') === 'false'){
+            $('.imageItem').removeClass('intro');
+        }
+    }
+    intro();
+
     // Buttons
     function closeOverlay() {
         $('.overlay').on('click', '.fa-times' ,function () {
@@ -37,6 +54,7 @@ $(document).ready(function() {
             $('.overlayBackground').hide();
             $('.overlay').hide();
             clearOverlay();
+            intro()
         });
     }
 
@@ -81,6 +99,8 @@ $(document).ready(function() {
         nextImage();
         previousImage();
         closeOverlay();
+        window.localStorage.setItem('intro', 'false');
+        intro();
     });
 
     function appendToOverlay() {

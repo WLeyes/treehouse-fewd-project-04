@@ -3,6 +3,11 @@
  */
 
 // todo: add search filter(filter on char keyup for images that contain the word in the search
+function searchFilter() {
+
+
+}// EOF
+
 /**
  * Created by Warren Leyes on 2017-07-16.
  */

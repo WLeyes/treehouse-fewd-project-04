@@ -39,9 +39,11 @@ $(document).ready(function() {
         }
         if(ls.getItem('intro') === 'true'){
             $('.imageItem').addClass('intro');
+            $('.gallery').addClass('intro2');
         }
         if(ls.getItem('intro') === 'false'){
             $('.imageItem').removeClass('intro');
+            $('.gallery').removeClass('intro2');
         }
     }
     intro();

@@ -3,14 +3,37 @@
  */
 
 // todo: add search filter(filter on char keyup for images that contain the word in the search
-function searchFilter() {
+//Write this function in vanilla javaScript as I need to get more comfortable with the language
+function searchAndDetroy() {
 
+    var images = document.getElementsByClassName('image');
+    var input = document.getElementById('search');
+    var imageItem = document.querySelectorAll('.imageItem');
 
+    input.onkeyup = function () {
+        for(i=0; i < images.length; i++){
+            // console.log(images[i].previousElementSibling.innerHTML); // desired results
+            // console.log(images[i].getAttribute('alt'));
+            // console.log(images[i].getAttribute('title').toUpperCase());
+            // console.log(input.value.toUpperCase());
+            if(images[i].getAttribute('title').toUpperCase().indexOf(input.value.toUpperCase()) >= 0 ){
+                //hide images that don't contain keyword from input
+                document.getElementsByClassName('imageItem')[i].style.display = '';
+            } else {
+                // show image
+                document.getElementsByClassName('imageItem')[i].style.display = 'none';
+            }
+            // console.log('Display: '+images[i].style.display);
+        }
+    };
 }// EOF
+searchAndDetroy();
+
 
 /**
  * Created by Warren Leyes on 2017-07-16.
  */
+// todo: figure out how to detect if on mobile breakpoint and set title and text visible
 $(document).ready(function() {
     $(this).find('.imageTitle').hide();
     $(this).find('.imageText').hide();
@@ -22,6 +45,8 @@ $(document).ready(function() {
         $(this).find('.imageText').slideUp(400);
     });
 }); // EOF
+
+
 /**
  * Created by Warren on 2017-07-11.
  */
@@ -101,6 +126,7 @@ $(document).ready(function() {
         $imageIndex = $(this).index();
         $('.header').hide();
         $('.gallery').hide();
+        $('.imageItem').css('z-index', 5);
         //Open overlay and elements
         appendToOverlay();
         nextImage();
@@ -147,3 +173,4 @@ $(document).ready(function() {
         $('.overlayBackground').children('.overlay').remove();
     }
 }); // EOF
+

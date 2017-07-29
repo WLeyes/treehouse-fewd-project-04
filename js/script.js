@@ -36,16 +36,20 @@ searchAndDetroy();
  */
 // todo: figure out how to detect if on mobile breakpoint and set title and text visible
 $(document).ready(function() {
-    $(this).find('.imageTitle').hide();
-    $(this).find('.imageText').hide();
-    $('.imageItem').hover( function() {
-        $(this).find('.imageTitle').slideDown(400);
-        $(this).find('.imageText').slideDown(400);
-    }, function() {
-        $(this).find('.imageTitle').slideUp(400);
-        $(this).find('.imageText').slideUp(400);
-    });
-
+    if(window.innerHeight > window.innerWidth){
+        $(this).find('.imageTitle').show();
+        $(this).find('.imageText').show();
+    } else {
+        $(this).find('.imageTitle').hide();
+        $(this).find('.imageText').hide();
+        $('.imageItem').hover( function() {
+            $(this).find('.imageTitle').slideDown(400);
+            $(this).find('.imageText').slideDown(400);
+        }, function() {
+            $(this).find('.imageTitle').slideUp(400);
+            $(this).find('.imageText').slideUp(400);
+        });
+    }
 }); // EOF
 
 
@@ -60,7 +64,7 @@ $(document).ready(function() {
     var captionText= document.getElementsByClassName('imageText');
     var $imageIndex = 0;
     var lightbox;
-    $(image).swipe("enable"); // test
+
     // this is set get and set local storage to prevent the intro from playing everytime the lightbox gets closed
     // can remove the local storage cookie in dev console ;)
     function intro(){
@@ -151,6 +155,12 @@ $(document).ready(function() {
             .append(lightbox.exit).show()
             .append(lightbox.next).show()
             .append(lightbox.previous).show();
+        console.log(window.innerWidth);
+        if(screen.width < 768){
+            $('.overlayBackground').attr('src', largeImagePath(image[$imageIndex].src)).hide();
+        } else {
+            $('.overlayBackground').attr('src', largeImagePath(image[$imageIndex].src)).show();
+        }
         }
     lightbox = {
         background: function () {return '<img id="background" class="overlayBackground" src="' + largeImagePath(image[$imageIndex].src) + '" alt="' + image[$imageIndex].alt + '">';},

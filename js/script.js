@@ -19,6 +19,7 @@ function searchAndDetroy() {
             if(images[i].getAttribute('title').toUpperCase().indexOf(input.value.toUpperCase()) >= 0 ){
                 //hide images that don't contain keyword from input
                 document.getElementsByClassName('imageItem')[i].style.display = '';
+                window.localStorage.setItem('intro', 'true');
             } else {
                 // show image
                 document.getElementsByClassName('imageItem')[i].style.display = 'none';
@@ -59,7 +60,7 @@ $(document).ready(function() {
     var captionText= document.getElementsByClassName('imageText');
     var $imageIndex = 0;
     var lightbox;
-
+    $(image).swipe("enable"); // test
     // this is set get and set local storage to prevent the intro from playing everytime the lightbox gets closed
     // can remove the local storage cookie in dev console ;)
     function intro(){

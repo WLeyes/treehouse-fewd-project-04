@@ -44,6 +44,7 @@ $(document).ready(function() {
         $(this).find('.imageTitle').slideUp(400);
         $(this).find('.imageText').slideUp(400);
     });
+
 }); // EOF
 
 

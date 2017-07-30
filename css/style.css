@@ -25,11 +25,12 @@ body {
 /* line 23, ../components/sass/_base.scss */
 .container {
   width: 80%;
+  min-width: 32rem;
   max-width: 100rem;
   margin: 8rem auto 0 auto;
 }
 
-/* line 29, ../components/sass/_base.scss */
+/* line 30, ../components/sass/_base.scss */
 h1, h2, h3, h4, h5, h6 {
   font-family: Raleway, Helvetica, Arial, sans-serif;
   color: #464848;
@@ -38,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
 }
 
-/* line 37, ../components/sass/_base.scss */
+/* line 38, ../components/sass/_base.scss */
 img {
   display: block;
   max-width: 100%;
@@ -116,12 +117,13 @@ header {
 /* line 65, ../components/sass/_modules.scss */
 .imageItem {
   margin: 1rem;
+  display: block;
 }
 
 /*
     Overlay section
 */
-/* line 74, ../components/sass/_modules.scss */
+/* line 75, ../components/sass/_modules.scss */
 #heading {
   display: block;
   position: fixed;
@@ -133,48 +135,48 @@ header {
   margin: 0 auto;
   line-height: normal;
   width: 100%;
-  font-size: 2.6rem;
+  font-size: 2.2rem;
   padding-top: 1rem;
   height: 5rem;
   text-align: center;
   z-index: 2;
 }
 @media only screen and (min-width: 32rem) {
-  /* line 74, ../components/sass/_modules.scss */
+  /* line 75, ../components/sass/_modules.scss */
   #heading {
-    font-size: 5rem;
-    line-height: 5rem;
-    padding: 0;
+    font-size: 3rem;
+    line-height: 3rem;
+    padding: 1rem 0;
   }
 }
 
-/* line 97, ../components/sass/_modules.scss */
+/* line 98, ../components/sass/_modules.scss */
 #caption {
   background-color: rgba(0, 0, 0, 0.6);
   display: block;
   position: fixed;
   text-transform: none;
   color: #fff;
+  top: 27.5rem;
   left: 0;
   right: 0;
   margin: 0 auto;
   max-width: 100%;
-  height: 11.4rem;
-  font-size: 1.8rem;
-  padding: 1.5rem;
+  height: 5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding: 1rem;
   bottom: 0;
   z-index: 3;
 }
 @media only screen and (min-width: 32rem) {
-  /* line 97, ../components/sass/_modules.scss */
+  /* line 98, ../components/sass/_modules.scss */
   #caption {
-    font-size: 2rem;
-    height: 6rem;
-    padding: 0 1.5rem;
+    height: 4rem;
   }
 }
 
-/* line 119, ../components/sass/_modules.scss */
+/* line 121, ../components/sass/_modules.scss */
 #closeButton {
   display: block;
   position: fixed;
@@ -187,48 +189,47 @@ header {
   cursor: pointer;
 }
 
-/* line 131, ../components/sass/_modules.scss */
+/* line 133, ../components/sass/_modules.scss */
 #previousButton {
   display: block;
   position: fixed;
   font-size: 15rem;
   color: rgba(255, 255, 255, 0.6);
-  bottom: 12.5rem;
-  left: 1rem;
-  right: auto;
+  bottom: 0;
+  left: 0;
   z-index: 3;
   cursor: pointer;
 }
-@media only screen and (min-width: 32rem) {
-  /* line 131, ../components/sass/_modules.scss */
+@media (min-width: 51.5rem) {
+  /* line 133, ../components/sass/_modules.scss */
   #previousButton {
-    top: calc(50% - 8rem);
+    bottom: 12.5rem;
   }
 }
 
-/* line 146, ../components/sass/_modules.scss */
+/* line 150, ../components/sass/_modules.scss */
 #nextButton {
   display: block;
   position: fixed;
   font-size: 15rem;
   color: rgba(255, 255, 255, 0.6);
-  bottom: 12.5rem;
-  right: 1rem;
+  bottom: 0;
+  right: 0;
   z-index: 5;
   cursor: pointer;
 }
-@media only screen and (min-width: 32rem) {
-  /* line 146, ../components/sass/_modules.scss */
+@media (min-width: 51.5rem) {
+  /* line 150, ../components/sass/_modules.scss */
   #nextButton {
-    top: calc(50% - 8rem);
+    bottom: 12.5rem;
   }
 }
 
-/* line 160, ../components/sass/_modules.scss */
+/* line 167, ../components/sass/_modules.scss */
 #largeImage {
   display: block;
   position: fixed;
-  top: 8rem;
+  top: 5rem;
   left: 0;
   right: 0;
   width: 100%;
@@ -237,14 +238,14 @@ header {
   z-index: 2;
 }
 @media only screen and (min-width: 32rem) {
-  /* line 160, ../components/sass/_modules.scss */
+  /* line 167, ../components/sass/_modules.scss */
   #largeImage {
     top: 0;
     margin: auto;
   }
 }
 @media only screen and (min-width: 48rem) {
-  /* line 160, ../components/sass/_modules.scss */
+  /* line 167, ../components/sass/_modules.scss */
   #largeImage {
     top: 0;
     bottom: 0;
@@ -256,12 +257,12 @@ header {
   }
 }
 
-/* line 185, ../components/sass/_modules.scss */
+/* line 192, ../components/sass/_modules.scss */
 .imageTitle {
   text-align: center;
 }
 
-/* line 189, ../components/sass/_modules.scss */
+/* line 196, ../components/sass/_modules.scss */
 .imageText {
   margin: 0 auto;
   margin-top: -1.8rem;
@@ -277,7 +278,7 @@ header {
   background: rgba(0, 0, 0, 0.6);
 }
 
-/* line 204, ../components/sass/_modules.scss */
+/* line 211, ../components/sass/_modules.scss */
 .overlay {
   width: 100%;
   height: 100%;
@@ -292,7 +293,7 @@ header {
   overflow: hidden;
 }
 
-/* line 218, ../components/sass/_modules.scss */
+/* line 225, ../components/sass/_modules.scss */
 .overlayBackground {
   position: fixed;
   top: 0;

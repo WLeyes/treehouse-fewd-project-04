@@ -1,12 +1,12 @@
 /**
- * Created by Warren on 2017-07-25.
+ * Created by Warren Leyes on 2017-07-25.
  */
 
 function searchAndDetroy() {
-
-    var images = document.getElementsByClassName('image');
-    var input = document.getElementById('search');
-    var imageItem = document.querySelectorAll('.imageItem');
+var images, input, imageItem, i;
+    images = document.getElementsByClassName('image');
+    input = document.getElementById('search');
+    imageItem = document.querySelectorAll('.imageItem');
 
     input.onkeyup = function () {
         for(i=0; i < images.length; i++){
@@ -37,9 +37,9 @@ searchAndDetroy();
 
 
 /**
- * Created by Warren Leyes on 2017-07-16.
+ * Created by Warren Leyes on 2017-07-25.
  */
-// todo: figure out how to detect if on mobile breakpoint and set title and text visible
+
 $(document).ready(function() {
 
         $(this).find('.imageTitle').hide();
@@ -55,34 +55,45 @@ $(document).ready(function() {
 
 
 /**
- * Created by Warren on 2017-07-11.
+ * Created by Warren Leyes on 2017-07-25.
  */
 
 $(document).ready(function() {
     //Global variables
-    var image =         document.getElementsByClassName('image');
-    var imageItem =     document.getElementsByClassName('.imageItem');
-    var headerText =    document.getElementsByClassName('imageTitle');
-    var captionText =   document.getElementsByClassName('imageText');
-    var $imageIndex =   0;
-    var lightbox;
-
+    var gallery, image, imageItem, background, headerText, captionText;
+    gallery =       document.querySelector('.gallery');
+    imageItem =     document.getElementsByClassName('imageItem');
+    image =         document.getElementsByClassName('image');
+    headerText =    document.getElementsByClassName('imageTitle');
+    captionText =   document.getElementsByClassName('imageText');
+    $src =          null;
+    $image =   0;
     lightbox = {
-        background: '<img id="background" class="overlayBackground" src="' + largeImagePath(image[$imageIndex].src) + '" alt="' + image[$imageIndex].alt + '">',
-        overlay:    '<div class="overlay"></div>',
-        previous:   '<i id="previousButton" class="fa fa-chevron-circle-left"></i>',
-        next:       '<i id="nextButton" class="fa fa-chevron-circle-right"></i>',
-        exit:       '<i id="closeButton" class="fa fa-times"></i>',
-        largeImage: '<img id="largeImage" src="' + largeImagePath(image[$imageIndex].src) + '" alt="' + image[$imageIndex].alt + '">',
-        title:      '<h1 id="heading">' + headerText[$imageIndex].innerHTML + '</h1>',
-        caption:    '<figcaption id="caption">' + captionText[$imageIndex].innerHTML + '</figcaption>'
+        background: {id:    'background', class: 'overlayBackground', src:   $src},
+        imageTitle:  headerText,
+        imageCaption: captionText
     };
+    for(i = 0; i < imageItem.length; i++){
+         lightbox.background.src    = largeImagePath(image[i].src);
+         lightbox.imageTitle = headerText[i].innerHTML;
+         lightbox.imageCaption = captionText[i].innerHTML;
+        console.log(lightbox.imageTitle);
+        console.log(lightbox.background);
+        console.log(lightbox.imageCaption);
+    }
+
+    // determine what was clicked at gallery & children level
+    gallery.addEventListener('click', function(event) {
+
+    });// end .click()
+
+
+
 
     // string replace image path
     function largeImagePath(path) {
         var imagePath = 'img/thumbnails/';
         var newImagePath = 'img/';
-        path =  image[$imageIndex].src;
         return path.replace(imagePath, newImagePath);
     }
 

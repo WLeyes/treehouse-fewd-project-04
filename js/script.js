@@ -2,7 +2,7 @@
 // can remove the local storage cookie in dev console ;)
 
 function intro(){
-    var ls = window.localStorage;
+    let ls = window.localStorage;
     if(ls.getItem('intro') === 'undefined' || ls.getItem('intro') === null)
     {
         ls.setItem('intro', true);
@@ -81,7 +81,7 @@ $(document).ready(function() {
     let imageItem =     document.getElementsByClassName('.imageItem');
     let headerText =    document.getElementsByClassName('imageTitle');
     let captionText =   document.getElementsByClassName('imageText');
-    let $imageIndex =   11;
+    let $imageIndex =   8;
     let lightbox;
 //  largeImagePath(image[$imageIndex].src) + '" alt="' + image[$imageIndex].alt +
     lightbox = {
@@ -89,24 +89,30 @@ $(document).ready(function() {
         overlay:    '<div class="overlay"></div>',
         previous:   '<i id="previousButton" class="fas fa-angle-double-left"></i>',
         next:       '<i id="nextButton" class="fas fa-angle-double-right"></i>',
-        exit:       '<i id="closeButton" class="fal fa-times"></i>',
+        exit:       '<i id="closeButton" class="fas fa-times"></i>',
         largeImage: '<img id="largeImage" src="' + largeImagePath(image[$imageIndex].src) + '" alt="' + image[$imageIndex].alt + '">',
         title:      '<h1 id="heading">' + headerText[$imageIndex].innerHTML + '</h1>',
         caption:    '<figcaption id="caption">' + captionText[$imageIndex].innerHTML + '</figcaption>'
     };
 
+    $('.gallery').addClass('intro2');
+    $('.imageItem').addClass('intro');
+    $('.imageItem').click(() => {
+
+    });
     $('body').append(lightbox.background)
         .append(lightbox.exit)
         .append(lightbox.title)
         .append(lightbox.largeImage)
         .append(lightbox.next)
         .append(lightbox.previous)
-        .append(lightbox.caption).show();
+        .append(lightbox.caption);
     $('.overlayBackground').css({
         'background-image': 'url('+ image[$imageIndex].src +')',
         'background-attachment': 'fixed',
         'background-size': 'cover'
     });
+
 
     // string replace image path
     function largeImagePath(path) {

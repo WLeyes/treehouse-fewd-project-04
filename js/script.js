@@ -76,53 +76,44 @@ $(document).ready(function() {
  */
 
 $(document).ready(function() {
-    // Declare variables
-    let gallery,imageItem, image,imagePath,newImagePath, $src;
+    //Global letiables
+    let image =         document.getElementsByClassName('image');
+    let imageItem =     document.getElementsByClassName('.imageItem');
+    let headerText =    document.getElementsByClassName('imageTitle');
+    let captionText =   document.getElementsByClassName('imageText');
+    let $imageIndex =   11;
+    let lightbox;
+//  largeImagePath(image[$imageIndex].src) + '" alt="' + image[$imageIndex].alt +
+    lightbox = {
+        background: '<article id="background" class="overlayBackground"></article>',
+        overlay:    '<div class="overlay"></div>',
+        previous:   '<i id="previousButton" class="fas fa-angle-double-left"></i>',
+        next:       '<i id="nextButton" class="fas fa-angle-double-right"></i>',
+        exit:       '<i id="closeButton" class="fal fa-times"></i>',
+        largeImage: '<img id="largeImage" src="' + largeImagePath(image[$imageIndex].src) + '" alt="' + image[$imageIndex].alt + '">',
+        title:      '<h1 id="heading">' + headerText[$imageIndex].innerHTML + '</h1>',
+        caption:    '<figcaption id="caption">' + captionText[$imageIndex].innerHTML + '</figcaption>'
+    };
 
-    // determine what was clicked at gallery & children level
-    imageItem = document.getElementsByClassName('image');
-    for(let i =0; i < imageItem.length; i++){
-        imageItem[i].addEventListener('click', (event) =>{
-            lightbox = {
-                galleryTag: '<article id="background" class="overlayBackground"></article>',
-                background: largeImagePath(event.target.src),
-                elements: {
-                    closeButton:   '<i id="closeButton"    class="fal fa-times-circle"       aria-hidden="true"></i>',
-                    nextButton:    '<i id="nextButton"     class="fal fa-angle-double-right" aria-hidden="true"></i>',
-                    previousButton:'<i id="previousButton" class="fal fa-angle-double-left"  aria-hidden="true"></i>'
-                },// end elements
-                image: {
-                    imageTag:  '<section id="largeImage" class="overlay"></section>',
-                    src: largeImagePath(event.target.src),
-                    alt: event.target.alt,
-                    title: event.target.title,
-                    headerText: event.target.previousElementSibling.innerHTML,
-                    captionText: event.target.nextElementSibling.innerHTML,
-                    index: i
-                }// end image
-            };// end lightbox
-            console.log('Index: '               + lightbox.image.index);
-            console.log('Lightbox Background: ' + lightbox.background);
-            console.log('Lighbox Header: '      + lightbox.image.headerText);
-            console.log('Lighbox Image: '       + lightbox.image.src);
-            console.log('Lightbox Caption: '    + lightbox.image.captionText);
-            i = i+1;
-            console.log('Index: '               + lightbox.image.index);
-            console.log('Lightbox Background: ' + lightbox.background);
-            console.log('Lighbox Header: '      + lightbox.image.headerText);
-            console.log('Lighbox Image: '       + lightbox.image.src);
-            console.log('Lightbox Caption: '    + lightbox.image.captionText);
-            //test: goal try to use event target ++ -- to get next and previous images, maybe setting an index
-
-
-
-        });// end click()
-    }// end for()
+    $('body').append(lightbox.background)
+        .append(lightbox.exit)
+        .append(lightbox.title)
+        .append(lightbox.largeImage)
+        .append(lightbox.next)
+        .append(lightbox.previous)
+        .append(lightbox.caption).show();
+    $('.overlayBackground').css({
+        'background-image': 'url('+ image[$imageIndex].src +')',
+        'background-attachment': 'fixed',
+        'background-size': 'cover'
+    });
 
     // string replace image path
     function largeImagePath(path) {
-        imagePath = 'img/thumbnails/';
-        newImagePath = 'img/';
+        let imagePath = 'img/thumbnails/';
+        let newImagePath = 'img/';
+        path =  image[$imageIndex].src;
         return path.replace(imagePath, newImagePath);
-    }// end largeImage()
+    }
+
 }); // EOF

@@ -93,7 +93,7 @@ $(document).ready(function() {
                 },// end elements
                 image: {
                     imageTag:  '<section id="largeImage" class="overlay"></section>',
-                    src: event.target.src,
+                    src: largeImagePath(event.target.src),
                     alt: event.target.alt,
                     title: event.target.title,
                     headerText: event.target.previousElementSibling.innerHTML,
@@ -106,8 +106,14 @@ $(document).ready(function() {
             console.log('Lighbox Header: '      + lightbox.image.headerText);
             console.log('Lighbox Image: '       + lightbox.image.src);
             console.log('Lightbox Caption: '    + lightbox.image.captionText);
-
+            i = i+1;
+            console.log('Index: '               + lightbox.image.index);
+            console.log('Lightbox Background: ' + lightbox.background);
+            console.log('Lighbox Header: '      + lightbox.image.headerText);
+            console.log('Lighbox Image: '       + lightbox.image.src);
+            console.log('Lightbox Caption: '    + lightbox.image.captionText);
             //test: goal try to use event target ++ -- to get next and previous images, maybe setting an index
+
 
 
         });// end click()

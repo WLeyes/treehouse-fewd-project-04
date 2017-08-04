@@ -81,7 +81,7 @@ $(document).ready(function() {
     let imageItem =     document.getElementsByClassName('.imageItem');
     let headerText =    document.getElementsByClassName('imageTitle');
     let captionText =   document.getElementsByClassName('imageText');
-    let $imageIndex =   8;
+    let $imageIndex =   10;
     let lightbox;
 //  largeImagePath(image[$imageIndex].src) + '" alt="' + image[$imageIndex].alt +
     lightbox = {
@@ -96,24 +96,20 @@ $(document).ready(function() {
     };
 
     $('.gallery').addClass('intro2');
-    $('.imageItem').addClass('intro');
+    $('.imageItem').addClass('intro'); // todo: add to onclick()
 
     $('.imageItem').click(() => {
         $('.gallery').hide();
-
-    });
-    //todo: move overlay code inside click event
-    $('body').append(lightbox.background)
-        .append(lightbox.exit)
-        .append(lightbox.title)
-        .append(lightbox.largeImage)
-        .append(lightbox.next)
-        .append(lightbox.previous)
-        .append(lightbox.caption);
-    $('.overlayBackground').css({
-        'background-image': 'url('+ image[$imageIndex].src +')',
-        'background-attachment': 'fixed',
-        'background-size': 'cover'
+        $('body').append(lightbox.background)
+            .append(lightbox.exit)
+            .append(lightbox.title)
+            .append(lightbox.largeImage)
+            .append(lightbox.next)
+            .append(lightbox.previous)
+            .append(lightbox.caption);
+        $('.overlayBackground').css({
+            'background-image': 'url('+ largeImagePath(image[$imageIndex].src) +')',
+        });
     });
 
 

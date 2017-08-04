@@ -66,7 +66,7 @@ header {
 /*
      Gallery
 */
-/* line 24, ../components/sass/_modules.scss */
+/* line 22, ../components/sass/_modules.scss */
 .intro {
   animation: intro 1s ease-out 0s 1;
 }
@@ -78,7 +78,7 @@ header {
     transform: translatey(0%) rotate(360deg);
   }
 }
-/* line 36, ../components/sass/_modules.scss */
+/* line 34, ../components/sass/_modules.scss */
 .intro2 {
   animation: slider 2s ease-out 0s 1;
 }
@@ -90,7 +90,7 @@ header {
     transform: rotateY(360deg);
   }
 }
-/* line 49, ../components/sass/_modules.scss */
+/* line 47, ../components/sass/_modules.scss */
 .gallery {
   max-width: 100rem;
   margin: 8rem auto 0 auto;
@@ -99,7 +99,7 @@ header {
   flex-wrap: wrap;
 }
 
-/* line 55, ../components/sass/_modules.scss */
+/* line 53, ../components/sass/_modules.scss */
 #gallery img {
   border: solid rgba(0, 0, 0, 0.6) 0.1rem;
   padding: .7rem;
@@ -107,12 +107,12 @@ header {
   height: 22rem;
 }
 
-/* line 62, ../components/sass/_modules.scss */
+/* line 60, ../components/sass/_modules.scss */
 #gallery img:hover {
   cursor: pointer;
 }
 
-/* line 65, ../components/sass/_modules.scss */
+/* line 63, ../components/sass/_modules.scss */
 .imageItem {
   margin: 1rem;
 }
@@ -120,7 +120,7 @@ header {
 /*
     Overlay section
 */
-/* line 74, ../components/sass/_modules.scss */
+/* line 72, ../components/sass/_modules.scss */
 #heading {
   display: block;
   position: fixed;
@@ -128,45 +128,64 @@ header {
   color: #fff;
   background-color: rgba(0, 0, 0, 0.6);
   top: 0;
-  margin: 0;
-  text-align: center;
-  width: 100%;
-  font-size: 5vw;
+  margin: 0 auto;
+  padding: 0 0.5rem;
   line-height: normal;
-  padding: 0.5rem 0;
+  width: 100%;
+  max-height: 10%;
+  font-size: 5vw;
+  text-align: center;
   z-index: 4;
 }
+@media only screen and (min-width: 1024px) {
+  /* line 72, ../components/sass/_modules.scss */
+  #heading {
+    font-size: 3vw;
+  }
+}
 
-/* line 90, ../components/sass/_modules.scss */
+/* line 92, ../components/sass/_modules.scss */
 #caption {
   display: block;
   position: fixed;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.6);
   bottom: 0;
-  left: 0;
   margin: 0 auto;
+  padding: .5rem;
   line-height: normal;
   width: 100%;
+  max-height: 10%;
   font-size: 3.5vw;
-  padding: 1.5rem 0;
   text-align: center;
   z-index: 4;
 }
+@media only screen and (min-width: 1024px) {
+  /* line 92, ../components/sass/_modules.scss */
+  #caption {
+    font-size: 2vw;
+  }
+}
 
-/* line 106, ../components/sass/_modules.scss */
+/* line 111, ../components/sass/_modules.scss */
 #closeButton {
   display: block;
   position: fixed;
-  font-size: 7vw;
+  font-size: 5vw;
   color: rgba(255, 0, 0, 0.7);
-  top: 0.5vh;
-  right: 3vw;
+  top: 0;
+  right: 0.5rem;
   z-index: 5;
   cursor: pointer;
 }
+@media only screen and (min-width: 1024px) {
+  /* line 111, ../components/sass/_modules.scss */
+  #closeButton {
+    font-size: 3vw;
+  }
+}
 
-/* line 117, ../components/sass/_modules.scss */
+/* line 125, ../components/sass/_modules.scss */
 #previousButton {
   display: block;
   position: fixed;
@@ -177,35 +196,37 @@ header {
   z-index: 3;
   cursor: pointer;
 }
-@media only screen and (min-width: 320px) and (max-width: 768px) and (orientation: landscape) {
-  /* line 117, ../components/sass/_modules.scss */
+@media only screen and (min-width: 320px) and (orientation: landscape) {
+  /* line 125, ../components/sass/_modules.scss */
+  #previousButton {
+    bottom: 30%;
+    left: 2.5rem;
+  }
+}
+@media only screen and (min-width: 768px) and (orientation: portrait) {
+  /* line 125, ../components/sass/_modules.scss */
   #previousButton {
     bottom: 30%;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-  /* line 117, ../components/sass/_modules.scss */
-  #previousButton {
-    bottom: 30%;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-  /* line 117, ../components/sass/_modules.scss */
+@media only screen and (min-width: 768px) and (orientation: portrait) {
+  /* line 125, ../components/sass/_modules.scss */
   #previousButton {
     bottom: 5%;
     font-size: 25rem;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  /* line 117, ../components/sass/_modules.scss */
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+  /* line 125, ../components/sass/_modules.scss */
   #previousButton {
     bottom: 30%;
-    left: 12rem;
+    left: 0;
+    max-width: 10%;
     font-size: 25rem;
   }
 }
 
-/* line 143, ../components/sass/_modules.scss */
+/* line 153, ../components/sass/_modules.scss */
 #nextButton {
   display: block;
   position: fixed;
@@ -216,40 +237,42 @@ header {
   z-index: 5;
   cursor: pointer;
 }
-@media only screen and (min-width: 320px) and (max-width: 768px) and (orientation: landscape) {
-  /* line 143, ../components/sass/_modules.scss */
+@media only screen and (min-width: 320px) and (orientation: landscape) {
+  /* line 153, ../components/sass/_modules.scss */
+  #nextButton {
+    bottom: 30%;
+    right: 2.5rem;
+  }
+}
+@media only screen and (min-width: 768px) and (orientation: portrait) {
+  /* line 153, ../components/sass/_modules.scss */
   #nextButton {
     bottom: 30%;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-  /* line 143, ../components/sass/_modules.scss */
-  #nextButton {
-    bottom: 30%;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-  /* line 143, ../components/sass/_modules.scss */
+@media only screen and (min-width: 768px) and (orientation: portrait) {
+  /* line 153, ../components/sass/_modules.scss */
   #nextButton {
     bottom: 5%;
     font-size: 25rem;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  /* line 143, ../components/sass/_modules.scss */
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+  /* line 153, ../components/sass/_modules.scss */
   #nextButton {
     bottom: 30%;
-    right: 12rem;
+    right: 0;
+    max-width: 10%;
     font-size: 25rem;
   }
 }
 
-/* line 172, ../components/sass/_modules.scss */
+/* line 182, ../components/sass/_modules.scss */
 .imageTitle {
   text-align: center;
 }
 
-/* line 176, ../components/sass/_modules.scss */
+/* line 186, ../components/sass/_modules.scss */
 .imageText {
   margin: 0 auto;
   margin-top: -1.8rem;
@@ -265,70 +288,64 @@ header {
   background: rgba(0, 0, 0, 0.9);
 }
 
-/* line 191, ../components/sass/_modules.scss */
+/* line 200, ../components/sass/_modules.scss */
+.overlay img:empty {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 206, ../components/sass/_modules.scss */
 .overlay {
-  display: block;
   position: fixed;
-  top: 0;
-  left: 0;
-  margin-top: 10rem;
-  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   max-width: 100%;
+  max-height: 100%;
   text-align: center;
   z-index: 3;
 }
-@media only screen and (min-width: 320px) and (max-width: 768px) and (orientation: landscape) {
-  /* line 191, ../components/sass/_modules.scss */
-  .overlay {
-    margin-top: 0;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-  /* line 191, ../components/sass/_modules.scss */
-  .overlay {
-    max-width: 90%;
-    top: 50%;
-    left: 50%;
-    margin-top: -22.2rem;
-    margin-left: -34.6rem;
-    border: solid #fff 1.5rem;
-    border-radius: 1rem;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  /* line 191, ../components/sass/_modules.scss */
+@media only screen and (min-width: 768px) and (orientation: portrait) {
+  /* line 206, ../components/sass/_modules.scss */
   .overlay {
     max-width: 80%;
-    top: 50%;
-    left: 50%;
-    margin-top: -26.1rem;
-    margin-left: -40.9rem;
+    max-height: 80%;
     border: solid #fff 1.5rem;
     border-radius: 1rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.9);
   }
 }
-@media only screen and (min-width: 1025px) {
-  /* line 191, ../components/sass/_modules.scss */
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+  /* line 206, ../components/sass/_modules.scss */
   .overlay {
-    max-width: 70%;
-    max-height: 70%;
-    top: 50%;
-    left: 50%;
-    margin-top: -29.7rem;
-    margin-left: -58.8rem;
+    max-width: 80%;
+    max-height: 80%;
     border: solid #fff 1.5rem;
     border-radius: 1rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.9);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 206, ../components/sass/_modules.scss */
+  .overlay {
+    max-width: 80%;
+    max-height: 80%;
+    border: solid #fff 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.9);
   }
 }
 
-/* line 234, ../components/sass/_modules.scss */
+/* line 240, ../components/sass/_modules.scss */
 .overlayBackground {
+  top: -1rem;
+  left: -1rem;
   position: fixed;
-  top: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  filter: blur(0.5rem);
+  background-position: center;
+  width: 110vw;
+  height: 110vh;
+  filter: blur(1rem);
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 3;

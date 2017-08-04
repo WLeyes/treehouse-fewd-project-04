@@ -90,16 +90,19 @@ $(document).ready(function() {
         previous:   '<i id="previousButton" class="fas fa-angle-double-left"></i>',
         next:       '<i id="nextButton" class="fas fa-angle-double-right"></i>',
         exit:       '<i id="closeButton" class="fas fa-times"></i>',
-        largeImage: '<img id="largeImage" src="' + largeImagePath(image[$imageIndex].src) + '" alt="' + image[$imageIndex].alt + '">',
+        largeImage: '<img id="largeImage" class="overlay" src="' + largeImagePath(image[$imageIndex].src) + '" alt="' + image[$imageIndex].alt + '">',
         title:      '<h1 id="heading">' + headerText[$imageIndex].innerHTML + '</h1>',
         caption:    '<figcaption id="caption">' + captionText[$imageIndex].innerHTML + '</figcaption>'
     };
 
     $('.gallery').addClass('intro2');
     $('.imageItem').addClass('intro');
+
     $('.imageItem').click(() => {
+        $('.gallery').hide();
 
     });
+    //todo: move overlay code inside click event
     $('body').append(lightbox.background)
         .append(lightbox.exit)
         .append(lightbox.title)

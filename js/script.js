@@ -86,9 +86,10 @@ $(document).ready(function() {
 //  largeImagePath(image[$imageIndex].src) + '" alt="' + image[$imageIndex].alt +
     lightbox = {
         background: '<article id="background" class="overlayBackground"></article>',
+        wrapper:   '<article id="wrapper" class="wrapper"></article>',
         overlay:    '<div class="overlay"></div>',
-        previous:   '<i id="previousButton" class="fas fa-angle-double-left"></i>',
-        next:       '<i id="nextButton" class="fas fa-angle-double-right"></i>',
+        previous:   '<i id="previousButton" class="fas fa-arrow-alt-circle-left"></i>',
+        next:       '<i id="nextButton" class="fas fa-arrow-alt-circle-right"></i>',
         exit:       '<i id="closeButton" class="fas fa-times"></i>',
         largeImage: '<img id="largeImage" class="overlay" src="' + largeImagePath(image[$imageIndex].src) + '" alt="' + image[$imageIndex].alt + '">',
         title:      '<h1 id="heading">' + headerText[$imageIndex].innerHTML + '</h1>',
@@ -98,20 +99,29 @@ $(document).ready(function() {
     $('.gallery').addClass('intro2');
     $('.imageItem').addClass('intro'); // todo: add to onclick()
 
-    $('.imageItem').click(() => {
+    $(document).on('click', '.imageItem', () => {
         $('.gallery').hide();
         $('body').append(lightbox.background)
-            .append(lightbox.exit)
+            .append(lightbox.wrapper);
+        $('.wrapper').append(lightbox.exit)
             .append(lightbox.title)
             .append(lightbox.largeImage)
             .append(lightbox.next)
             .append(lightbox.previous)
             .append(lightbox.caption);
         $('.overlayBackground').css({
-            'background-image': 'url('+ largeImagePath(image[$imageIndex].src) +')',
+            'background-image': 'url('+ largeImagePath(image[$imageIndex].src) +')'
         });
-    });
-
+        $(document).on('click', '#closeButton',() => {
+            alert('exit');
+        });// end #closeButton click
+        $(document).on('click', '#nextButton',() => {
+            alert('next');
+        });// end #nexteButton click
+        $(document).on('click', '#previousButton',() => {
+            alert('previous');
+        });// end #previousButton click
+    }); // end imageItem click
 
     // string replace image path
     function largeImagePath(path) {

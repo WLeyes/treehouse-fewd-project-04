@@ -81,9 +81,9 @@ $(document).ready(function() {
     let imageItem =     document.getElementsByClassName('.imageItem');
     let headerText =    document.getElementsByClassName('imageTitle');
     let captionText =   document.getElementsByClassName('imageText');
-    let $imageIndex =   10;
+    let $imageIndex =   0;
     let lightbox;
-//  largeImagePath(image[$imageIndex].src) + '" alt="' + image[$imageIndex].alt +
+
     lightbox = {
         background: '<article id="background" class="overlayBackground"></article>',
         wrapper:   '<article id="wrapper" class="wrapper"></article>',
@@ -99,20 +99,23 @@ $(document).ready(function() {
     $('.gallery').addClass('intro2');
     $('.imageItem').addClass('intro'); // todo: add to onclick()
 
-    $(document).on('click', '.imageItem', () => {
+    $('.gallery').on('click', '.image', (event) => {
+        event.preventDefault();
+        let href = $(this).find('.image').attr('src');
+            console.log(href);
         $('.gallery').hide();
         $('body').append(lightbox.background)
-            .append(lightbox.wrapper);
-        $('.wrapper').append(lightbox.exit)
+            .append(lightbox.exit)
             .append(lightbox.title)
             .append(lightbox.largeImage)
             .append(lightbox.next)
             .append(lightbox.previous)
             .append(lightbox.caption);
+
         $('.overlayBackground').css({
             'background-image': 'url('+ largeImagePath(image[$imageIndex].src) +')'
         });
-        $(document).on('click', '#closeButton',() => {
+        $('#closeButton').click( () => {
             alert('exit');
         });// end #closeButton click
         $(document).on('click', '#nextButton',() => {
@@ -130,5 +133,4 @@ $(document).ready(function() {
         path =  image[$imageIndex].src;
         return path.replace(imagePath, newImagePath);
     }
-
 }); // EOF

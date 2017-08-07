@@ -84,16 +84,22 @@ $('.gallery').addClass('intro2');   // todo: add to onclick()
 $('.imageItem').addClass('intro');  // todo: add to onclick()
 // todo: add logic to change Local Storage to false to remove/disable intro classes (move and tweak from intro.js)
 
-for(i=0; i < $('.imageItem').length; i++){
 
-}
-console.log($('.imageItem').length);
 
 $('.imageItem').on('click', '.image', function(event)  {
     document.getElementById('search').value = '';
     event.preventDefault();
     $imageIndex = $(this).attr('src');
     $imageObject = $(this);
+
+    
+    // ?? tring to workout current next() and previous logic
+    for(i=0; i < $('.imageItem').length; i++){
+        console.log($('.image')[i]);
+    }
+    // console.log($('.imageItem').index($imageObject[i]));
+
+
     overlayElements();
     open();
     exit();
@@ -116,7 +122,7 @@ function open() {
     lightbox.image.attr('src', imagePath($imageIndex));
     lightbox.title.text($imageObject[0].previousElementSibling.innerHTML);
     lightbox.caption.text($imageObject[0].nextElementSibling.innerHTML);
-    console.log($imageObject);
+    // console.log($imageObject); // todo: remove
 }; // end open()
 
 function overlayElements() {

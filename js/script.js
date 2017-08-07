@@ -92,10 +92,14 @@ $('.imageItem').on('click', '.image', function(event)  {
     $imageIndex = $(this).attr('src');
     $imageObject = $(this);
 
-    
+
     // ?? tring to workout current next() and previous logic
     for(i=0; i < $('.imageItem').length; i++){
-        console.log($('.image')[i]);
+        console.log($('.imageItem')[i]);
+        // if current logic matches something then next() $imageIndex = ++ logic, ele previous() $imageIndex == -- logic 
+        if(''){
+
+        }
     }
     // console.log($('.imageItem').index($imageObject[i]));
 

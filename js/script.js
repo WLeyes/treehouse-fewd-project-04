@@ -23,7 +23,7 @@ intro();
  */
 
 function searchAndDetroy() {
-var images, input, imageItem, i;
+let images, input, imageItem, i;
     images = document.getElementsByClassName('image');
     input = document.getElementById('search');
     imageItem = document.querySelectorAll('.imageItem');
@@ -38,7 +38,7 @@ var images, input, imageItem, i;
                 window.localStorage.setItem('intro', 'true');
             }
             // Clear input after the image has been clicked
-            var result = document.getElementsByClassName('imageItem')[i];
+            // let result = document.getElementsByClassName('imageItem')[i];
                 input.onblur = function () {
                     $('.image').on('click', function(event) {
                         this.value = '';
@@ -72,84 +72,83 @@ $(document).ready(function() {
 
 
 /**
- * Created by Warren Leyes on 2017-07-25.
- */
+* Created by Warren Leyes on 2017-07-25.
+*/
 
-$(document).ready(function() {
-    let $imageIndex, lightbox;
+let $imageIndex, lightbox;
 
-    $('.gallery').addClass('intro2');
-    $('.imageItem').addClass('intro'); // todo: add to onclick()
+$('.gallery').addClass('intro2');
+$('.imageItem').addClass('intro'); // todo: add to onclick()
 
-    $('.imageItem').on('click', '.image', function(event)  {
-        event.preventDefault();
-        $imageIndex = $(this);
-       overlayElements();
-        open();
-        exit();
-        next();
-        previous();
-    }); // end imageItem click
+$('.imageItem').on('click', '.image', function(event)  {
+    document.getElementById('search').value = '';
+    event.preventDefault();
+    $imageIndex = $(this);
+    overlayElements();
+    open();
+    exit();next();
+    previous();
+}); // end imageItem click
 
-    function open() {
-    $('body').append(lightbox.background)
-        .append(lightbox.exit)
-        .append(lightbox.title)
-        .append(lightbox.largeImage)
-        .append(lightbox.next)
-        .append(lightbox.previous)
-        .append(lightbox.caption);
-    $('.gallery').hide();
-        $('.overlayBackground').css({
-            'background-image': 'url('+ largeImagePath($imageIndex) +')'
-        });
-    }
+function open() {
+$('body').append(lightbox.background)
+    .append(lightbox.exit)
+    .append(lightbox.title)
+    .append(lightbox.largeImage)
+    .append(lightbox.next)
+    .append(lightbox.previous)
+    .append(lightbox.caption);
+$('.gallery').hide();
+    $('.overlayBackground').css({
+        'background-image': 'url('+ largeImagePath($imageIndex) +')'
+    });
+}; // end open()
 
-    function overlayElements() {
-        lightbox = {
-            background: $('<article id="background" class="overlayBackground"></article>'),
-            overlay:    $('<div class="overlay"></div>'),
-            previous:   $('<button id="previousButton" class="fas fa-arrow-alt-circle-left"></button>'),
-            next:       $('<button id="nextButton" class="fas fa-arrow-alt-circle-right"></button>'),
-            exit:       $('<button id="closeButton" class="fas fa-times"></button>'),
-            largeImage: $('<img id="largeImage" class="overlay" src="' + largeImagePath($imageIndex[0]) + '" alt="' + $imageIndex[0].alt + '">'),
-            title:      $('<h1 id="heading">' + $imageIndex[0].previousElementSibling.innerHTML + '</h1>'),
-            caption:    $('<figcaption id="caption">' + $imageIndex[0].nextElementSibling.innerHTML + '</figcaption>')
-        };
-    }
+function overlayElements() {
+    lightbox = {
+        background: $('<article id="background" class="overlayBackground"></article>'),
+        overlay:    $('<div class="overlay"></div>'),
+        previous:   $('<button id="previousButton" class="fas fa-arrow-alt-circle-left"></button>'),
+        next:       $('<button id="nextButton" class="fas fa-arrow-alt-circle-right"></button>'),
+        exit:       $('<button id="closeButton" class="fas fa-times"></button>'),
+        largeImage: $('<img id="largeImage" class="overlay" src="' + largeImagePath($imageIndex[0]) + '" alt="' + $imageIndex[0].alt + '">'),
+        title:      $('<h1 id="heading">' + $imageIndex[0].previousElementSibling.innerHTML + '</h1>'),
+        caption:    $('<figcaption id="caption">' + $imageIndex[0].nextElementSibling.innerHTML + '</figcaption>')
+    };
+}; // end overlayElements()
 
-    function exit() {
-        $(document).on('click', '#closeButton', function()  {
-            lightbox.background.remove()
-            lightbox.caption.remove();
-            lightbox.title.remove()
-            lightbox.largeImage.remove()
-            $('#closeButton').remove()
-            $('#nextButton').remove()
-            $('#previousButton').remove()
+function exit() {
+    $(document).on('click', '#closeButton', function()  {
+        lightbox.background.remove()
+        lightbox.caption.remove();
+        lightbox.title.remove()
+        lightbox.largeImage.remove()
+        $('#closeButton').remove()
+        $('#nextButton').remove()
+        $('#previousButton').remove()
 
-            $('.gallery').show();
-        });// end #closeButton click
-    }
+        $('.gallery').show();
+    });// end #closeButton click
+}; // end exit()
 
-    function next() {
-        $('body').on('click', '#nextButton', function()  {
-            alert('next');
-        });// end #nextButton click
-    }
+function next() {
+    $('body').on('click', '#nextButton', function()  {
+        alert('next');
+    });// end #nextButton click
+}; // end next()
 
-    function previous() {
-        $('body').on('click', '#previousButton',function()  {
-            alert('previous');
-        });// end #previousButton click
-    }
+function previous() {
+    $('body').on('click', '#previousButton',function()  {
+        alert('previous');
+    });// end #previousButton click
+}; //end previous()
 
+
+function largeImagePath(path) {
     // string replace image path
-    function largeImagePath(path) {
-        let imagePath = 'img/thumbnails/';
-        let newImagePath = 'img/';
-        path =  $imageIndex[0].src;
-        return path.replace(imagePath, newImagePath);
-    }
-}); // EOF
+    let imagePath = 'img/thumbnails/';
+    let newImagePath = 'img/';
+    path =  $imageIndex[0].src;
+    return path.replace(imagePath, newImagePath);
+} //end largeImagePath()
 

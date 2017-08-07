@@ -78,59 +78,86 @@ $(document).ready(function() {
 $(document).ready(function() {
     //Global letiables
     let image =         document.getElementsByClassName('image');
-    let imageItem =     document.getElementsByClassName('.imageItem');
+    let imageItem =     document.getElementsByClassName('imageItem');
     let headerText =    document.getElementsByClassName('imageTitle');
     let captionText =   document.getElementsByClassName('imageText');
-    let $imageIndex =   0;
+    let $imageIndex = 0;
     let lightbox;
-
-    lightbox = {
-        background: '<article id="background" class="overlayBackground"></article>',
-        wrapper:   '<article id="wrapper" class="wrapper"></article>',
-        overlay:    '<div class="overlay"></div>',
-        previous:   '<i id="previousButton" class="fas fa-arrow-alt-circle-left"></i>',
-        next:       '<i id="nextButton" class="fas fa-arrow-alt-circle-right"></i>',
-        exit:       '<i id="closeButton" class="fas fa-times"></i>',
-        largeImage: '<img id="largeImage" class="overlay" src="' + largeImagePath(image[$imageIndex].src) + '" alt="' + image[$imageIndex].alt + '">',
-        title:      '<h1 id="heading">' + headerText[$imageIndex].innerHTML + '</h1>',
-        caption:    '<figcaption id="caption">' + captionText[$imageIndex].innerHTML + '</figcaption>'
-    };
 
     $('.gallery').addClass('intro2');
     $('.imageItem').addClass('intro'); // todo: add to onclick()
 
-    $('.gallery').on('click', '.image', (event) => {
+    $('.imageItem').on('click', '.image', function(event)  {
         event.preventDefault();
-        let href = $(this).find('.image').attr('src');
-            console.log(href);
         $('.gallery').hide();
-        $('body').append(lightbox.background)
-            .append(lightbox.exit)
-            .append(lightbox.title)
-            .append(lightbox.largeImage)
-            .append(lightbox.next)
-            .append(lightbox.previous)
-            .append(lightbox.caption);
+        $imageIndex = $(this);
+       overlayElements();
+        open();
+        exit();
+        // todo: add functions to buttons
 
+
+       next();
+        previous();
+    }); // end imageItem click
+
+    function open() {
+    $('body').append(lightbox.background)
+        .append(lightbox.exit)
+        .append(lightbox.title)
+        .append(lightbox.largeImage)
+        .append(lightbox.next)
+        .append(lightbox.previous)
+        .append(lightbox.caption);
         $('.overlayBackground').css({
-            'background-image': 'url('+ largeImagePath(image[$imageIndex].src) +')'
+            'background-image': 'url('+ largeImagePath($imageIndex) +')'
         });
-        $('#closeButton').click( () => {
-            alert('exit');
+    }
+
+    function overlayElements() {
+        lightbox = {
+            background: $('<article id="background" class="overlayBackground"></article>'),
+            wrapper:   $('<article id="wrapper" class="wrapper"></article>'),
+            overlay:    $('<div class="overlay"></div>'),
+            previous:   $('<i id="previousButton" class="fas fa-arrow-alt-circle-left"></i>'),
+            next:       $('<i id="nextButton" class="fas fa-arrow-alt-circle-right"></i>'),
+            exit:       $('<i id="closeButton" class="fas fa-times"></i>'),
+            largeImage: $('<img id="largeImage" class="overlay" src="' + largeImagePath($imageIndex[0]) + '" alt="' + $imageIndex[0].alt + '">'),
+            title:      $('<h1 id="heading">' + $imageIndex[0].previousElementSibling.innerHTML + '</h1>'),
+            caption:    $('<figcaption id="caption">' + $imageIndex[0].nextElementSibling.innerHTML + '</figcaption>')
+        };
+    }
+
+    function exit() {
+        $(document).on('click', '#closeButton', function()  {
+            $(lightbox.background).remove();
+            $(lightbox.largeImage).remove();
+            $('#heading').remove();
+            $("#closeButton").empty();
+            $('#closeButton').remove();
+            $('#nextButton').remove();
+            $('#previousButton').remove();
+            $('#caption').remove();
+            $('.gallery').show();
         });// end #closeButton click
-        $(document).on('click', '#nextButton',() => {
+    }
+    function next() {
+        $(document).on('click', '#nextButton',function()  {
             alert('next');
-        });// end #nexteButton click
-        $(document).on('click', '#previousButton',() => {
+        });// end #nextButton click
+    }
+    function previous() {
+        $(document).on('click', '#previousButton',function()  {
             alert('previous');
         });// end #previousButton click
-    }); // end imageItem click
+    }
 
     // string replace image path
     function largeImagePath(path) {
         let imagePath = 'img/thumbnails/';
         let newImagePath = 'img/';
-        path =  image[$imageIndex].src;
+        path =  $imageIndex[0].src;
         return path.replace(imagePath, newImagePath);
     }
 }); // EOF
+

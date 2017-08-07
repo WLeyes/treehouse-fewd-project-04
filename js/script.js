@@ -41,9 +41,10 @@ let images, input, imageItem, i;
             // let result = document.getElementsByClassName('imageItem')[i];
                 input.onblur = function () {
                     $('.image').on('click', function(event) {
+                        event.preventDefault();
                         this.value = '';
                         for (i = 0; i < images.length; i++) {
-                            document.querySelectorAll('.imageItem')[i].style.display = 'block';
+                            imageItem[i].style.display = 'block';
                         } // end for()
                     })// end click
                 }; // end onblur()
@@ -91,13 +92,16 @@ $('.imageItem').on('click', '.image', function(event)  {
 }); // end imageItem click
 
 function open() {
-$('body').append(lightbox.background)
+$('body').append(lightbox.background);
+lightbox.overlay
     .append(lightbox.exit)
     .append(lightbox.title)
     .append(lightbox.largeImage)
     .append(lightbox.next)
     .append(lightbox.previous)
     .append(lightbox.caption);
+$('body').append(lightbox.overlay);
+
 $('.gallery').hide();
     $('.overlayBackground').css({
         'background-image': 'url('+ largeImagePath($imageIndex) +')'
@@ -106,10 +110,10 @@ $('.gallery').hide();
 
 function overlayElements() {
     lightbox = {
-        background: $('<article id="background" class="overlayBackground"></article>'),
-        overlay:    $('<div class="overlay"></div>'),
-        previous:   $('<button id="previousButton" class="fas fa-arrow-alt-circle-left"></button>'),
-        next:       $('<button id="nextButton" class="fas fa-arrow-alt-circle-right"></button>'),
+        overlay:    $('<article class="overlay-container">'),
+        background: $('<article id="background" class="overlayBackground">'),
+        previous:   $('<button id="previousButton" class="fas fa-arrow-alt-circle-left">'),
+        next:       $('<button id="nextButton" class="fas fa-arrow-alt-circle-right">'),
         exit:       $('<button id="closeButton" class="fas fa-times"></button>'),
         largeImage: $('<img id="largeImage" class="overlay" src="' + largeImagePath($imageIndex[0]) + '" alt="' + $imageIndex[0].alt + '">'),
         title:      $('<h1 id="heading">' + $imageIndex[0].previousElementSibling.innerHTML + '</h1>'),
@@ -118,27 +122,21 @@ function overlayElements() {
 }; // end overlayElements()
 
 function exit() {
-    $(document).on('click', '#closeButton', function()  {
-        lightbox.background.remove()
-        lightbox.caption.remove();
-        lightbox.title.remove()
-        lightbox.largeImage.remove()
-        $('#closeButton').remove()
-        $('#nextButton').remove()
-        $('#previousButton').remove()
-
+    $('.overlay-container').on('click', '#closeButton', function()  {
+        lightbox.background.remove();
+        lightbox.overlay.empty().remove();
         $('.gallery').show();
     });// end #closeButton click
 }; // end exit()
 
 function next() {
-    $('body').on('click', '#nextButton', function()  {
+    $('.overlay-container').on('click', '#nextButton', function()  {
         alert('next');
     });// end #nextButton click
 }; // end next()
 
 function previous() {
-    $('body').on('click', '#previousButton',function()  {
+    $('.overlay-container').on('click', '#previousButton', function()  {
         alert('previous');
     });// end #previousButton click
 }; //end previous()

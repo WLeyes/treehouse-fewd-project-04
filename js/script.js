@@ -76,48 +76,59 @@ $(document).ready(function() {
 * Created by Warren Leyes on 2017-07-25.
 */
 
-let $imageIndex, lightbox;
+let $imageIndex, images, imageItem,$imageObject, lightbox;
+images = document.getElementsByClassName('image');
+imageItem = document.querySelectorAll('.imageItem');
 
-$('.gallery').addClass('intro2');
-$('.imageItem').addClass('intro'); // todo: add to onclick()
+$('.gallery').addClass('intro2');   // todo: add to onclick()
+$('.imageItem').addClass('intro');  // todo: add to onclick()
+// todo: add logic to change Local Storage to false to remove/disable intro classes (move and tweak from intro.js)
+
+for(i=0; i < $('.imageItem').length; i++){
+
+}
+console.log($('.imageItem').length);
 
 $('.imageItem').on('click', '.image', function(event)  {
     document.getElementById('search').value = '';
     event.preventDefault();
-    $imageIndex = $(this);
+    $imageIndex = $(this).attr('src');
+    $imageObject = $(this);
     overlayElements();
     open();
-    exit();next();
+    exit();
+    next();
     previous();
 }); // end imageItem click
 
 function open() {
-$('body').append(lightbox.background);
-lightbox.overlay
-    .append(lightbox.exit)
-    .append(lightbox.title)
-    .append(lightbox.largeImage)
-    .append(lightbox.next)
-    .append(lightbox.previous)
-    .append(lightbox.caption);
-$('body').append(lightbox.overlay);
-
-$('.gallery').hide();
-    $('.overlayBackground').css({
-        'background-image': 'url('+ largeImagePath($imageIndex) +')'
-    });
+    $('body').append(lightbox.background);
+    lightbox.overlay
+        .append(lightbox.exit)
+        .append(lightbox.title)
+        .append(lightbox.image)
+        .append(lightbox.next)
+        .append(lightbox.previous)
+        .append(lightbox.caption);
+    $('body').append(lightbox.overlay);
+    $('.gallery').hide();
+    $('.overlayBackground').css({'background-image': 'url('+ imagePath($imageIndex) +')'});
+    lightbox.image.attr('src', imagePath($imageIndex));
+    lightbox.title.text($imageObject[0].previousElementSibling.innerHTML);
+    lightbox.caption.text($imageObject[0].nextElementSibling.innerHTML);
+    console.log($imageObject);
 }; // end open()
 
 function overlayElements() {
     lightbox = {
-        overlay:    $('<article class="overlay-container">'),
-        background: $('<article id="background" class="overlayBackground">'),
-        previous:   $('<button id="previousButton" class="fas fa-arrow-alt-circle-left">'),
-        next:       $('<button id="nextButton" class="fas fa-arrow-alt-circle-right">'),
+        overlay:    $('<article class="overlay-container"></article>'),
+        background: $('<article id="background" class="overlayBackground"></article>'),
+        previous:   $('<button id="previousButton" class="fas fa-arrow-alt-circle-left"></button>'),
+        next:       $('<button id="nextButton" class="fas fa-arrow-alt-circle-right"></button>'),
         exit:       $('<button id="closeButton" class="fas fa-times"></button>'),
-        largeImage: $('<img id="largeImage" class="overlay" src="' + largeImagePath($imageIndex[0]) + '" alt="' + $imageIndex[0].alt + '">'),
-        title:      $('<h1 id="heading">' + $imageIndex[0].previousElementSibling.innerHTML + '</h1>'),
-        caption:    $('<figcaption id="caption">' + $imageIndex[0].nextElementSibling.innerHTML + '</figcaption>')
+        image:      $('<img id="image" class="overlay">'),
+        title:      $('<h1 id="heading"></h1>'),
+        caption:    $('<figcaption id="caption"></figcaption>')
     };
 }; // end overlayElements()
 
@@ -141,12 +152,11 @@ function previous() {
     });// end #previousButton click
 }; //end previous()
 
-
-function largeImagePath(path) {
+function imagePath(path) {
     // string replace image path
     let imagePath = 'img/thumbnails/';
     let newImagePath = 'img/';
-    path =  $imageIndex[0].src;
+    path =  $imageIndex;
     return path.replace(imagePath, newImagePath);
-} //end largeImagePath()
+} //end imagePath()
 

@@ -26,7 +26,7 @@ let images, input, imageItem, i;
                         for (i = 0; i < images.length; i++) {
                             imageItem[i].style.display = 'block';
                         } // end for()
-                    })// end click
+                    });// end click
                 }; // end onblur()
         }// end for
     };
@@ -111,8 +111,8 @@ function open() {
     nextIndexValue = indexValue++;
     previousIndexValue = indexValue--;
 
-    if (indexValue === $(imageItem).length -1){ nextIndexValue = 0; };
-    if(indexValue === 0){ previousIndexValue = $(imageItem).length -1; }
+    if (indexValue === $(imageItem).length -1){ nextIndexValue = 0; }
+    if(indexValue === 0){ previousIndexValue = $(imageItem).length -1;}
 
 
     $('.gallery').hide();
@@ -127,7 +127,7 @@ function open() {
         .append(lightbox.caption);
     $('body').append(lightbox.overlay);
     $('body').append(lightbox.background);
-}; // end open()
+} // end open()
 
 function overlayElements() {
     lightbox = {
@@ -141,7 +141,7 @@ function overlayElements() {
         caption:    $('<figcaption id="caption"></figcaption>'),
         footer:     $('<p id="footer"></p>')
     };
-}; // end overlayElements()
+} // end overlayElements()
 
 function exit() {
     $('.overlay-container').on('click', '#closeButton', function()  {
@@ -151,29 +151,29 @@ function exit() {
         $('.header').show();
         $('.footer').show();
     });// end #closeButton click
-}; // end exit()
+} // end exit()
 
 function next(index) {
     $('.overlay-container').on('click', '#nextButton', function()  {
         indexValue = indexValue+1;
-        if(indexValue === imageItem.length ){indexValue = 0};
+        if(indexValue === imageItem.length ){indexValue = 0;}
         lightbox.background.css({'background-image': 'url('+ imagePath() +')'}).change();
         lightbox.image.attr('src', imagePath()).change();
         lightbox.title.text(imageItem[indexValue].children[0].innerHTML).change();
         lightbox.caption.text(imageItem[indexValue].children[2].innerHTML).change();
     });// end #nextButton click
-}; // end next()
+} // end next()
 
 function previous(index) {
     $('.overlay-container').on('click', '#previousButton', function()  {
         indexValue = indexValue-1;
-        if(indexValue < 0){indexValue = imageItem.length -1};
+        if(indexValue < 0){indexValue = imageItem.length -1;}
         lightbox.background.css({'background-image': 'url('+ imagePath() +')'}).change();
         lightbox.image.attr('src', imagePath()).change();
         lightbox.title.text(imageItem[indexValue].children[0].innerHTML).change();
         lightbox.caption.text(imageItem[indexValue].children[2].innerHTML).change();
     });// end #previousButton click
-}; //end previous()
+} //end previous()
 
 function imagePath(path) {
     // string replace image path

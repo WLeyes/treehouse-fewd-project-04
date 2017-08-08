@@ -49,24 +49,25 @@ img {
     Header
 */
 /* line 7, ../components/sass/_modules.scss */
-header {
+.header {
   position: fixed;
   top: 1rem;
   width: 100%;
   text-align: center;
-  z-index: 1;
+  z-index: 4;
 }
 
 /* line 14, ../components/sass/_modules.scss */
 #search {
   box-shadow: 0 0 3px #464848;
   margin: 1rem;
+  z-index: 1;
 }
 
 /*
      Gallery
 */
-/* line 22, ../components/sass/_modules.scss */
+/* line 23, ../components/sass/_modules.scss */
 .intro {
   animation: intro 1s ease-out 0s 1;
 }
@@ -78,7 +79,7 @@ header {
     transform: translatey(0%) rotate(360deg);
   }
 }
-/* line 34, ../components/sass/_modules.scss */
+/* line 35, ../components/sass/_modules.scss */
 .intro2 {
   animation: slider 2s ease-out 0s 1;
 }
@@ -120,7 +121,7 @@ header {
 /*
     Overlay section
 */
-/* line 72, ../components/sass/_modules.scss */
+/* line 70, ../components/sass/_modules.scss */
 #heading {
   display: block;
   position: fixed;
@@ -137,14 +138,14 @@ header {
   text-align: center;
   z-index: 5;
 }
-@media only screen and (min-width: 1024px) {
-  /* line 72, ../components/sass/_modules.scss */
+@media only screen and (min-width: 1025px) {
+  /* line 70, ../components/sass/_modules.scss */
   #heading {
     font-size: 3vw;
   }
 }
 
-/* line 92, ../components/sass/_modules.scss */
+/* line 90, ../components/sass/_modules.scss */
 #caption {
   display: block;
   position: fixed;
@@ -160,14 +161,14 @@ header {
   text-align: center;
   z-index: 5;
 }
-@media only screen and (min-width: 1024px) {
-  /* line 92, ../components/sass/_modules.scss */
+@media only screen and (min-width: 1025px) {
+  /* line 90, ../components/sass/_modules.scss */
   #caption {
     font-size: 2vw;
   }
 }
 
-/* line 111, ../components/sass/_modules.scss */
+/* line 109, ../components/sass/_modules.scss */
 #closeButton {
   display: block;
   position: fixed;
@@ -178,14 +179,14 @@ header {
   z-index: 6;
   cursor: pointer;
 }
-@media only screen and (min-width: 1024px) {
-  /* line 111, ../components/sass/_modules.scss */
+@media only screen and (min-width: 1025px) {
+  /* line 109, ../components/sass/_modules.scss */
   #closeButton {
     font-size: 3vw;
   }
 }
 
-/* line 125, ../components/sass/_modules.scss */
+/* line 123, ../components/sass/_modules.scss */
 #previousButton {
   display: block;
   position: fixed;
@@ -197,7 +198,7 @@ header {
   cursor: pointer;
 }
 @media only screen and (min-width: 320px) and (orientation: landscape) {
-  /* line 125, ../components/sass/_modules.scss */
+  /* line 123, ../components/sass/_modules.scss */
   #previousButton {
     top: 50%;
     transform: translateY(-50%);
@@ -205,20 +206,14 @@ header {
   }
 }
 @media only screen and (min-width: 768px) and (orientation: portrait) {
-  /* line 125, ../components/sass/_modules.scss */
+  /* line 123, ../components/sass/_modules.scss */
   #previousButton {
-    bottom: 30%;
-  }
-}
-@media only screen and (min-width: 768px) and (orientation: portrait) {
-  /* line 125, ../components/sass/_modules.scss */
-  #previousButton {
-    bottom: 5%;
-    font-size: 25rem;
+    bottom: 8%;
+    font-size: 20rem;
   }
 }
 @media only screen and (min-width: 768px) and (orientation: landscape) {
-  /* line 125, ../components/sass/_modules.scss */
+  /* line 123, ../components/sass/_modules.scss */
   #previousButton {
     bottom: 30%;
     left: 0;
@@ -226,14 +221,14 @@ header {
     font-size: 25rem;
   }
 }
-@media only screen and (min-width: 1024px) {
-  /* line 125, ../components/sass/_modules.scss */
+@media only screen and (min-width: 1025px) {
+  /* line 123, ../components/sass/_modules.scss */
   #previousButton {
     bottom: 35%;
   }
 }
 
-/* line 157, ../components/sass/_modules.scss */
+/* line 153, ../components/sass/_modules.scss */
 #nextButton {
   display: block;
   position: fixed;
@@ -245,7 +240,7 @@ header {
   cursor: pointer;
 }
 @media only screen and (min-width: 320px) and (orientation: landscape) {
-  /* line 157, ../components/sass/_modules.scss */
+  /* line 153, ../components/sass/_modules.scss */
   #nextButton {
     top: 50%;
     transform: translateY(-50%);
@@ -253,40 +248,35 @@ header {
   }
 }
 @media only screen and (min-width: 768px) and (orientation: portrait) {
-  /* line 157, ../components/sass/_modules.scss */
+  /* line 153, ../components/sass/_modules.scss */
   #nextButton {
-    bottom: 30%;
-  }
-}
-@media only screen and (min-width: 768px) and (orientation: portrait) {
-  /* line 157, ../components/sass/_modules.scss */
-  #nextButton {
-    bottom: 5%;
-    font-size: 25rem;
+    bottom: 8%;
+    font-size: 20rem;
   }
 }
 @media only screen and (min-width: 768px) and (orientation: landscape) {
-  /* line 157, ../components/sass/_modules.scss */
+  /* line 153, ../components/sass/_modules.scss */
   #nextButton {
     top: 50%;
+    right: 0;
     transform: translateY(-50%);
     max-width: 10%;
     font-size: 25rem;
   }
 }
-@media only screen and (min-width: 1024px) {
-  /* line 157, ../components/sass/_modules.scss */
+@media only screen and (min-width: 1025px) {
+  /* line 153, ../components/sass/_modules.scss */
   #nextButton {
     bottom: 35%;
   }
 }
 
-/* line 190, ../components/sass/_modules.scss */
+/* line 185, ../components/sass/_modules.scss */
 .imageTitle {
   text-align: center;
 }
 
-/* line 194, ../components/sass/_modules.scss */
+/* line 189, ../components/sass/_modules.scss */
 .imageText {
   margin: 0 auto;
   margin-top: -1.8rem;
@@ -302,14 +292,14 @@ header {
   background: rgba(0, 0, 0, 0.9);
 }
 
-/* line 208, ../components/sass/_modules.scss */
+/* line 203, ../components/sass/_modules.scss */
 .overlay img:empty {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-/* line 214, ../components/sass/_modules.scss */
+/* line 209, ../components/sass/_modules.scss */
 .overlay {
   position: fixed;
   top: 30%;
@@ -321,7 +311,7 @@ header {
   z-index: 4;
 }
 @media only screen and (min-width: 320px) and (orientation: landscape) {
-  /* line 214, ../components/sass/_modules.scss */
+  /* line 209, ../components/sass/_modules.scss */
   .overlay {
     top: 50%;
     left: 50%;
@@ -331,7 +321,7 @@ header {
   }
 }
 @media only screen and (min-width: 768px) and (orientation: portrait) {
-  /* line 214, ../components/sass/_modules.scss */
+  /* line 209, ../components/sass/_modules.scss */
   .overlay {
     top: 50%;
     left: 50%;
@@ -344,7 +334,7 @@ header {
   }
 }
 @media only screen and (min-width: 768px) and (orientation: landscape) {
-  /* line 214, ../components/sass/_modules.scss */
+  /* line 209, ../components/sass/_modules.scss */
   .overlay {
     top: 50%;
     left: 50%;
@@ -356,8 +346,8 @@ header {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.9);
   }
 }
-@media only screen and (min-width: 1024px) {
-  /* line 214, ../components/sass/_modules.scss */
+@media only screen and (min-width: 1025px) {
+  /* line 209, ../components/sass/_modules.scss */
   .overlay {
     border: solid #fff 1.5rem;
     border-radius: 1rem;
@@ -365,7 +355,7 @@ header {
   }
 }
 
-/* line 257, ../components/sass/_modules.scss */
+/* line 252, ../components/sass/_modules.scss */
 .overlayBackground {
   top: -1rem;
   left: -1rem;
@@ -382,8 +372,9 @@ header {
 /*
      Footer section
 */
-/* line 273, ../components/sass/_modules.scss */
+/* line 268, ../components/sass/_modules.scss */
 .footer {
-  width: 100vw;
+  width: 100%;
   text-align: center;
+  float: left;
 }

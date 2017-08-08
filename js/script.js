@@ -64,7 +64,7 @@ $(document).ready(function() {
     $(this).find('.imageTitle').hide();
     $(this).find('.imageText').hide();
     if(isMobile.any()) {
-        alert("This is a Mobile Device");
+        // alert("This is a Mobile Device");
         $(this).find('.imageTitle').slideDown(400);
         $(this).find('.imageText').slideDown(400);
     }
@@ -117,6 +117,7 @@ function open() {
 
     $('.gallery').hide();
     $('.header').hide();
+    $('.footer').hide();
     lightbox.overlay
         .append(lightbox.exit)
         .append(lightbox.title)
@@ -148,6 +149,7 @@ function exit() {
         lightbox.overlay.empty().remove();
         $('.gallery').show();
         $('.header').show();
+        $('.footer').show();
     });// end #closeButton click
 }; // end exit()
 

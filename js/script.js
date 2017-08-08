@@ -76,7 +76,7 @@ $(document).ready(function() {
 * Created by Warren Leyes on 2017-07-25.
 */
 
-let $imageIndex, images, imageItem,$imageObject, indexValue,nextIndexValue,previousIndexValue,current, lightbox;
+let $imageIndex, images, imageItem,$imageObject, indexValue,nextIndexValue,previousIndexValue, lightbox;
 images = document.getElementsByClassName('image');  // <image tags>
 imageItem = document.querySelectorAll('.imageItem');// the wraping <figure tag>
 
@@ -87,19 +87,14 @@ $(imageItem).addClass('intro');  // todo: add to onclick()
 $('.imageItem').on('click', '.image', function(event)  {
     document.getElementById('search').value = '';
     event.preventDefault();
-    current = $(this);
     indexValue = $('.image').index(this);// set image index to clicked value
 
     console.log('Current Index: ' + indexValue);
-    console.log(images); // NodeList of images
-    console.log(images[indexValue]);    // returns the img tag of clicked
-    console.log(imageItem[indexValue]); // returns obj <figure of clicked
 
-    console.log(imageItem[indexValue].children[0].innerHTML);
-    console.log(imageItem[indexValue].children[1]);
-    console.log(imageItem[indexValue].children[2].innerHTML);
-
-    console.log('Path: '+ imagePath(images[indexValue].src));
+    console.log(imageItem[indexValue].children[0].innerHTML); // overlay heading
+    console.log(imageItem[indexValue].children[1]);           // overlay img tag
+    console.log(imageItem[indexValue].children[2].innerHTML); // overlay caption
+    console.log('Path: '+ imagePath(images[indexValue].src)); // parth to large image
 
     overlayElements();
     open();
@@ -114,9 +109,8 @@ function open() {
     lightbox.title.text(imageItem[indexValue].children[0].innerHTML);
     lightbox.caption.text(imageItem[indexValue].children[2].innerHTML);
 
-    indexValue = $($imageIndex).parent().index();// might remove
-    nextIndexValue = indexValue + 1;
-    previousIndexValue = indexValue - 1;
+    nextIndexValue = indexValue++;
+    previousIndexValue = indexValue--;
 
     if (indexValue === $(imageItem).length -1){ nextIndexValue = 0; };
     if(indexValue === 0){ previousIndexValue = $(imageItem).length -1; }
@@ -157,13 +151,25 @@ function exit() {
 
 function next(index) {
     $('.overlay-container').on('click', '#nextButton', function()  {
-         return $imageIndex = index+1;
+        indexValue = indexValue+1;
+        if(indexValue === imageItem.length ){indexValue = 0};
+        lightbox.background.css({'background-image': 'url('+ imagePath() +')'}).change();
+        lightbox.image.attr('src', imagePath()).change();
+        lightbox.title.text(imageItem[indexValue].children[0].innerHTML).change();
+        lightbox.caption.text(imageItem[indexValue].children[2].innerHTML).change();
+        console.log(lightbox.title[0].innerHTML);
     });// end #nextButton click
 }; // end next()
 
 function previous(index) {
     $('.overlay-container').on('click', '#previousButton', function()  {
-        return $imageIndex = index-1;
+        indexValue = indexValue-1;
+        if(indexValue < 0){indexValue = imageItem.length -1};
+        lightbox.background.css({'background-image': 'url('+ imagePath() +')'}).change();
+        lightbox.image.attr('src', imagePath()).change();
+        lightbox.title.text(imageItem[indexValue].children[0].innerHTML).change();
+        lightbox.caption.text(imageItem[indexValue].children[2].innerHTML).change();
+        console.log(lightbox.title[0].innerHTML);
     });// end #previousButton click
 }; //end previous()
 

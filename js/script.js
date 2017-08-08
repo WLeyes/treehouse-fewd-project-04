@@ -76,12 +76,12 @@ $(document).ready(function() {
 * Created by Warren Leyes on 2017-07-25.
 */
 
-let $imageIndex, images, imageItem,$imageObject, lightbox;
-images = document.getElementsByClassName('image');
-imageItem = document.querySelectorAll('.imageItem');
+let $imageIndex, images, imageItem,$imageObject, indexValue,nextIndexValue,previousIndexValue,current, lightbox;
+images = document.getElementsByClassName('image');  // <image tags>
+imageItem = document.querySelectorAll('.imageItem');// the wraping <figure tag>
 
 $('.gallery').addClass('intro2');   // todo: add to onclick()
-$('.imageItem').addClass('intro');  // todo: add to onclick()
+$(imageItem).addClass('intro');  // todo: add to onclick()
 // todo: add logic to change Local Storage to false to remove/disable intro classes (move and tweak from intro.js)
 
 
@@ -89,30 +89,45 @@ $('.imageItem').addClass('intro');  // todo: add to onclick()
 $('.imageItem').on('click', '.image', function(event)  {
     document.getElementById('search').value = '';
     event.preventDefault();
-    $imageIndex = $(this).attr('src');
-    $imageObject = $(this);
+    current = $(this);
+    indexValue = $('.image').index(this);// set image index to clicked value
 
+    console.log('Current Index: ' + indexValue);
+    console.log(images); // NodeList of images
+    console.log(images[indexValue]);    // returns the img tag of clicked
+    console.log(imageItem[indexValue]); // returns obj <figure of clicked
 
-    // ?? tring to workout current next() and previous logic
-    for(i=0; i < $('.imageItem').length; i++){
-        console.log($('.imageItem')[i]);
-        // if current logic matches something then next() $imageIndex = ++ logic, ele previous() $imageIndex == -- logic 
-        if(''){
-
-        }
-    }
-    // console.log($('.imageItem').index($imageObject[i]));
-
+    console.log('Path: '+ imagePath(images[indexValue].src));
 
     overlayElements();
     open();
     exit();
-    next();
-    previous();
+    next(indexValue);
+    previous(indexValue);
 }); // end imageItem click
 
 function open() {
-    $('body').append(lightbox.background);
+
+    indexValue = $($imageIndex).parent().index();// might remove
+    nextIndexValue = indexValue + 1;
+    previousIndexValue = indexValue - 1;
+
+    if (indexValue === $(imageItem).length -1){ nextIndexValue = 0; };
+    if(indexValue === 0){ previousIndexValue = $(imageItem).length -1; }
+
+
+
+    for(i=0; i < $(imageItem).length; i++){
+        // console.log($(imageItem)[i].innerHTML)
+        if(i === indexValue){
+
+            lightbox.background.css({'background-image': 'url('+ imagePath(current[indexValue].src) +')'});
+
+            lightbox.image.attr('src', imagePath(indexValue));
+        }
+    }
+
+    $('.gallery').hide();
     lightbox.overlay
         .append(lightbox.exit)
         .append(lightbox.title)
@@ -121,12 +136,7 @@ function open() {
         .append(lightbox.previous)
         .append(lightbox.caption);
     $('body').append(lightbox.overlay);
-    $('.gallery').hide();
-    $('.overlayBackground').css({'background-image': 'url('+ imagePath($imageIndex) +')'});
-    lightbox.image.attr('src', imagePath($imageIndex));
-    lightbox.title.text($imageObject[0].previousElementSibling.innerHTML);
-    lightbox.caption.text($imageObject[0].nextElementSibling.innerHTML);
-    // console.log($imageObject); // todo: remove
+    $('body').append(lightbox.background);
 }; // end open()
 
 function overlayElements() {
@@ -150,15 +160,15 @@ function exit() {
     });// end #closeButton click
 }; // end exit()
 
-function next() {
+function next(index) {
     $('.overlay-container').on('click', '#nextButton', function()  {
-        alert('next');
+         return $imageIndex = index+1;
     });// end #nextButton click
 }; // end next()
 
-function previous() {
+function previous(index) {
     $('.overlay-container').on('click', '#previousButton', function()  {
-        alert('previous');
+        return $imageIndex = index-1;
     });// end #previousButton click
 }; //end previous()
 
@@ -166,7 +176,7 @@ function imagePath(path) {
     // string replace image path
     let imagePath = 'img/thumbnails/';
     let newImagePath = 'img/';
-    path =  $imageIndex;
+    path =  images[indexValue].src;
     return path.replace(imagePath, newImagePath);
 } //end imagePath()
 

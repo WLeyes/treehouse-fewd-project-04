@@ -84,18 +84,11 @@ $('.gallery').addClass('intro2');   // todo: add to onclick()
 $(imageItem).addClass('intro');  // todo: add to onclick()
 // todo: add logic to change Local Storage to false to remove/disable intro classes (move and tweak from intro.js)
 
+
 $('.imageItem').on('click', '.image', function(event)  {
     document.getElementById('search').value = '';
     event.preventDefault();
     indexValue = $('.image').index(this);// set image index to clicked value
-
-    console.log('Current Index: ' + indexValue);
-
-    console.log(imageItem[indexValue].children[0].innerHTML); // overlay heading
-    console.log(imageItem[indexValue].children[1]);           // overlay img tag
-    console.log(imageItem[indexValue].children[2].innerHTML); // overlay caption
-    console.log('Path: '+ imagePath(images[indexValue].src)); // parth to large image
-
     overlayElements();
     open();
     exit();
@@ -117,6 +110,7 @@ function open() {
 
 
     $('.gallery').hide();
+    $('.header').hide();
     lightbox.overlay
         .append(lightbox.exit)
         .append(lightbox.title)
@@ -137,7 +131,8 @@ function overlayElements() {
         exit:       $('<button id="closeButton" class="fas fa-times"></button>'),
         image:      $('<img id="image" class="overlay">'),
         title:      $('<h1 id="heading"></h1>'),
-        caption:    $('<figcaption id="caption"></figcaption>')
+        caption:    $('<figcaption id="caption"></figcaption>'),
+        footer:     $('<p id="footer"></p>')
     };
 }; // end overlayElements()
 
@@ -146,6 +141,7 @@ function exit() {
         lightbox.background.remove();
         lightbox.overlay.empty().remove();
         $('.gallery').show();
+        $('.header').show();
     });// end #closeButton click
 }; // end exit()
 
@@ -157,7 +153,6 @@ function next(index) {
         lightbox.image.attr('src', imagePath()).change();
         lightbox.title.text(imageItem[indexValue].children[0].innerHTML).change();
         lightbox.caption.text(imageItem[indexValue].children[2].innerHTML).change();
-        console.log(lightbox.title[0].innerHTML);
     });// end #nextButton click
 }; // end next()
 
@@ -169,7 +164,6 @@ function previous(index) {
         lightbox.image.attr('src', imagePath()).change();
         lightbox.title.text(imageItem[indexValue].children[0].innerHTML).change();
         lightbox.caption.text(imageItem[indexValue].children[2].innerHTML).change();
-        console.log(lightbox.title[0].innerHTML);
     });// end #previousButton click
 }; //end previous()
 

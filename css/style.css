@@ -382,3 +382,8 @@ header {
 /*
      Footer section
 */
+/* line 273, ../components/sass/_modules.scss */
+.footer {
+  width: 100vw;
+  text-align: center;
+}

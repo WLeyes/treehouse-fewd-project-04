@@ -84,8 +84,6 @@ $('.gallery').addClass('intro2');   // todo: add to onclick()
 $(imageItem).addClass('intro');  // todo: add to onclick()
 // todo: add logic to change Local Storage to false to remove/disable intro classes (move and tweak from intro.js)
 
-
-
 $('.imageItem').on('click', '.image', function(event)  {
     document.getElementById('search').value = '';
     event.preventDefault();
@@ -97,6 +95,10 @@ $('.imageItem').on('click', '.image', function(event)  {
     console.log(images[indexValue]);    // returns the img tag of clicked
     console.log(imageItem[indexValue]); // returns obj <figure of clicked
 
+    console.log(imageItem[indexValue].children[0].innerHTML);
+    console.log(imageItem[indexValue].children[1]);
+    console.log(imageItem[indexValue].children[2].innerHTML);
+
     console.log('Path: '+ imagePath(images[indexValue].src));
 
     overlayElements();
@@ -107,6 +109,10 @@ $('.imageItem').on('click', '.image', function(event)  {
 }); // end imageItem click
 
 function open() {
+    lightbox.background.css({'background-image': 'url('+ imagePath() +')'});
+    lightbox.image.attr('src', imagePath());
+    lightbox.title.text(imageItem[indexValue].children[0].innerHTML);
+    lightbox.caption.text(imageItem[indexValue].children[2].innerHTML);
 
     indexValue = $($imageIndex).parent().index();// might remove
     nextIndexValue = indexValue + 1;
@@ -115,17 +121,6 @@ function open() {
     if (indexValue === $(imageItem).length -1){ nextIndexValue = 0; };
     if(indexValue === 0){ previousIndexValue = $(imageItem).length -1; }
 
-
-
-    for(i=0; i < $(imageItem).length; i++){
-        // console.log($(imageItem)[i].innerHTML)
-        if(i === indexValue){
-
-            lightbox.background.css({'background-image': 'url('+ imagePath(current[indexValue].src) +')'});
-
-            lightbox.image.attr('src', imagePath(indexValue));
-        }
-    }
 
     $('.gallery').hide();
     lightbox.overlay

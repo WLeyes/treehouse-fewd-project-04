@@ -1,23 +1,3 @@
-// this is set get and set local storage to prevent the intro from playing everytime the lightbox gets closed
-// can remove the local storage cookie in dev console ;)
-
-function intro(){
-    let ls = window.localStorage;
-    if(ls.getItem('intro') === 'undefined' || ls.getItem('intro') === null)
-    {
-        ls.setItem('intro', true);
-    } // I think i need to add a for loop here to loop through all objects and append class name
-    if(ls.getItem('intro') === 'true'){
-        document.getElementsByClassName('imageItem').className += 'intro';
-        document.getElementsByClassName('gallery').className += 'intro2';
-    } else if(ls.getItem('intro') === 'false'){
-        document.getElementsByClassName('imageItem').remove('intro');
-        document.getElementsByClassName('gallery').remove('intro2');
-    } else {
-        // future usage
-    }
-}
-intro();
 /**
  * Created by Warren Leyes on 2017-07-25.
  */
@@ -58,17 +38,43 @@ searchAndDetroy();
  * Created by Warren Leyes on 2017-07-25.
  */
 
-$(document).ready(function() {
+// mobile detection from https://jstricks.com/detect-mobile-devices-javascript-jquery/
+let isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+};
 
-        $(this).find('.imageTitle').hide();
-        $(this).find('.imageText').hide();
-        $('.imageItem').hover( function() {
-            $(this).find('.imageTitle').slideDown(400);
-            $(this).find('.imageText').slideDown(400);
-        }, function() {
-            $(this).find('.imageTitle').slideUp(400);
-            $(this).find('.imageText').slideUp(400);
-        });
+$(document).ready(function() {
+    $(this).find('.imageTitle').hide();
+    $(this).find('.imageText').hide();
+    if(isMobile.any()) {
+        alert("This is a Mobile Device");
+        $(this).find('.imageTitle').slideDown(400);
+        $(this).find('.imageText').slideDown(400);
+    }
+    $('.imageItem').hover( function() {
+        $(this).find('.imageTitle').slideDown(400);
+        $(this).find('.imageText').slideDown(400);
+    }, function() {
+        $(this).find('.imageTitle').slideUp(400);
+        $(this).find('.imageText').slideUp(400);
+    });
 }); // EOF
 
 
